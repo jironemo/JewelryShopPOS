@@ -5,15 +5,12 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) {
         try{
+            Item i = new Item("sfkldjg", "အးေး", new Weight(1,2,3), new Weight(0,1,1));
             Connection con = null;
-            String query = "SELECT * FROM Stock";
+                String query =  "INSERT INTO STOCK VALUES ("+" '"+i.getId()+"', '"+i.getName()+"', '"+i.getWeight().getString()+"','"+i.depreciation().getString()+"');";
             con = Connector.connect();
             Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery(query);
-
-            while(rs.next()){
-                System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
-            }
+            s.executeQuery(query);
         }
         catch(SQLException sq){
             sq.printStackTrace();

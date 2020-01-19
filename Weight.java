@@ -28,5 +28,7 @@ public class Weight {
     public double getYway() {
         return (this.Yway);
     }
-
+    public String getString(){
+        return(this.Kyat +","+this.Pel + "," + this.Yway);
+    }
 }
