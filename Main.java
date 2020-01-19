@@ -1,19 +1,9 @@
-import java.lang.*;
-import java.util.*;
-import java.io.*;
-import java.sql.*;
+
 public class Main {
     public static void main(String[] args) {
-        try{
-            Item i = new Item("sfkldjg", "အးေး", new Weight(1,2,3), new Weight(0,1,1));
-            Connection con = null;
-                String query =  "INSERT INTO STOCK VALUES ("+" '"+i.getId()+"', '"+i.getName()+"', '"+i.getWeight().getString()+"','"+i.depreciation().getString()+"');";
-            con = Connector.connect();
-            Statement s = con.createStatement();
-            s.executeQuery(query);
-        }
-        catch(SQLException sq){
-            sq.printStackTrace();
-        }
+//        Item i = new Item("G0004", "ရွှေခြေကျင်း", new Weight(1,1,0), new Weight(0,0,1));
+//       int k =	new  Utilities().addItem(i);
+      int k = new Utilities().deleteData("G0004","Stock");
+       System.out.println(k);
     }
 }
