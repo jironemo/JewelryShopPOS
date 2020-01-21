@@ -14,22 +14,25 @@ public class Utilities {
 	            return(1);
 	        }
 	        catch(SQLException sq){
-	            return(0);
+	        	sq.printStackTrace();
+	        	return(0);
 	        }
+		 	
 	}
 
 	public int deleteData(String id,String table) {
 		// TODO Auto-generated method stub
-		try {
-			  Connection con = null;
-              String query =  "DELETE FROM"+table+"WHERE Item_ID = '" + id +"';";
-          con = Connector.connect();
-          Statement s = con.createStatement();
-          s.execute(query);
+		try{
+			Connection con = null;
+            String query =  "DELETE FROM "+table+" WHERE Item_ID = '" + id +"';";
+            con = Connector.connect();
+            Statement s = con.createStatement();
+            s.execute(query);
 			return 1;
-			}
+		}
 		catch(SQLException sq){
+			sq.printStackTrace();
 			return 0;
 		}
-		}
 	}
+}
