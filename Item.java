@@ -1,7 +1,11 @@
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  * Item
  */
-public class Item {
+public class Item implements Utilities{
 
     String id;
     String name;
@@ -37,4 +41,35 @@ public class Item {
     public Weight depreciation() {
         return this.depreciation;
     }
+    
+
+    public int add(Object i) {
+		 	try{
+		 		Connection con = null;
+		 		String query =  "INSERT INTO STOCK VALUES ("+" '"+((Item)i).getId()+"', '"+((Item)i).getName()+"', '"+((Item)i).getWeight().getString()+"','"+((Item)i).depreciation().getString()+"');";
+		 		con = Connector.connect();
+		 		Statement s = con.createStatement();
+		 		s.execute(query);
+		 		return(1);
+	        }
+	        catch(SQLException sq){
+	        	sq.printStackTrace();
+	        	return(0);
+	        }
+    }
+    
+    
+	public int updateData(Object o) {
+		try {
+			Connection con = null;
+			String query = "UPDATE Stock SET Name = '"+((Item)o).getName()+"', Weight = '"+((Item)o).getWeight().getString()+"', Depreciation = '"+ ((Item)o).depreciation().getString()+"' WHERE ID ='"+this.id+"';" ;
+			con = Connector.connect();
+			Statement s = con.createStatement();
+			s.execute(query);
+			return(1);
+		}
+		catch(SQLException sq) {
+			return(0);
+		}
+	}
 }
