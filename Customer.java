@@ -53,10 +53,10 @@ public class Customer implements Utilities{
 		this.phonenumber = phonenumber;
 	}
 	@Override
-	public int add(Object i) {
+	public int add() {
 		try{
 	 		Connection con = null;
-	 		String query =  "INSERT INTO CUSTOMER VALUES ("+" '"+((Customer)i).getID()+"', '"+((Customer)i).getName()+"', '"+((Customer)i).getAddress()+"','"+((Customer)i).getPhonenumber()+"');";
+	 		String query =  "INSERT INTO CUSTOMER VALUES ("+" '"+this.getID()+"', '"+this.getName()+"', '"+this.getAddress()+"','"+this.getPhonenumber()+"');";
 	 		con = Connector.connect();
 	 		Statement s = con.createStatement();
 	 		s.execute(query);
@@ -68,9 +68,20 @@ public class Customer implements Utilities{
         }
 	}
 	@Override
-	public int updateData(Object o) {
+	public int updateData() {
 		// TODO Auto-generated method stub
-		return 0;
+		try {
+			Connection con = null;
+			String query = "UPDATE Stock SET Cus_Name = '"+this.getName()+"', Cus_Addr = '"+this.getAddress()+"', Cus_Phone = '"+ this.phonenumber+"' WHERE ID ='"+this.id+"';" ;
+			con = Connector.connect();
+			Statement s = con.createStatement();
+			s.execute(query);
+			return(1);
+		}
+		catch(SQLException sq) {
+			return(0);
+		}
 	}
-  
+	
 }
+  

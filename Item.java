@@ -43,10 +43,10 @@ public class Item implements Utilities{
     }
     
 
-    public int add(Object i) {
+    public int add() {
 		 	try{
 		 		Connection con = null;
-		 		String query =  "INSERT INTO STOCK VALUES ("+" '"+((Item)i).getId()+"', '"+((Item)i).getName()+"', '"+((Item)i).getWeight().getString()+"','"+((Item)i).depreciation().getString()+"');";
+		 		String query =  "INSERT INTO STOCK VALUES ("+" '"+this.getId()+"', '"+this.getName()+"', '"+this.getWeight().getString()+"','"+this.depreciation().getString()+"');";
 		 		con = Connector.connect();
 		 		Statement s = con.createStatement();
 		 		s.execute(query);
@@ -59,10 +59,11 @@ public class Item implements Utilities{
     }
     
     
-	public int updateData(Object o) {
+	public int updateData() {
+		
 		try {
 			Connection con = null;
-			String query = "UPDATE Stock SET Name = '"+((Item)o).getName()+"', Weight = '"+((Item)o).getWeight().getString()+"', Depreciation = '"+ ((Item)o).depreciation().getString()+"' WHERE ID ='"+this.id+"';" ;
+			String query = "UPDATE Stock SET Name = '"+this.name+"', Weight = '"+this.getWeight().getKyat()+"', Depreciation = '"+ this.depreciation().getString()+"' WHERE ID ='"+this.id+"';" ;
 			con = Connector.connect();
 			Statement s = con.createStatement();
 			s.execute(query);

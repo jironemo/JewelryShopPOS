@@ -4,7 +4,7 @@ import java.sql.Statement;
 
 public interface Utilities {
 
-	public int add(Object i);
+	public int add();
 
 	public static int deleteData(String id,String table) {
 		// TODO Auto-generated method stub
@@ -22,5 +22,5 @@ public interface Utilities {
 		}
 	}
 	
-	public  int updateData(Object o) ;
+	public  int updateData() ;
 }
