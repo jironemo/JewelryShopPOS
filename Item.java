@@ -63,7 +63,7 @@ public class Item implements Utilities{
 		
 		try {
 			Connection con = null;
-			String query = "UPDATE Stock SET Name = '"+this.name+"', Weight = '"+this.getWeight().getKyat()+"', Depreciation = '"+ this.depreciation().getString()+"' WHERE ID ='"+this.id+"';" ;
+			String query = "UPDATE Stock SET Name = '"+this.name+"', Weight = '"+this.getWeight().getString()+"', Depreciation = '"+ this.depreciation().getString()+"' WHERE ID ='"+this.id+"';" ;
 			con = Connector.connect();
 			Statement s = con.createStatement();
 			s.execute(query);
