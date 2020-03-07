@@ -1,6 +1,8 @@
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 /**
  * Item
@@ -58,6 +60,20 @@ public class Item implements Utilities{
 	        }
     }
     
+    public static ResultSet getItem(String tablename)  {
+    	ResultSet rs = null;
+    	try {
+    		String query = "SELECT * FROM "+ tablename + ";";
+        	Connection c = Connector.connect();
+        	Statement s = c.createStatement();
+        	 rs = s.executeQuery(query);
+        	
+    	}
+    	catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	return rs;
+    }
     
 	public int updateData() {
 		
