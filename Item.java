@@ -35,19 +35,19 @@ public class Item implements Utilities{
         return this.name;
     }
 
-    public Weight getWeight() {
-        return this.weight;
+    public String getWeight() {
+        return this.weight.getString();
     }
 
-    public Weight depreciation() {
-        return this.depreciation;
+    public String getDepreciation() {
+        return this.depreciation.getString();
     }
     
 
     public int add() {
 		 	try{
 		 		Connection con = null;
-		 		String query =  "INSERT INTO STOCK VALUES ("+" '"+this.getId()+"', '"+this.getName()+"', '"+this.getWeight().getString()+"','"+this.depreciation().getString()+"');";
+		 		String query =  "INSERT INTO STOCK VALUES ("+" '"+this.getId()+"', '"+this.getName()+"', '"+this.getWeight()+"','"+this.getDepreciation()+"');";
 		 		con = Connector.connect();
 		 		Statement s = con.createStatement();
 		 		s.execute(query);
@@ -78,7 +78,7 @@ public class Item implements Utilities{
 		
 		try {
 			Connection con = null;
-			String query = "UPDATE Stock SET Name = '"+this.name+"', Weight = '"+this.getWeight().getString()+"', Depreciation = '"+ this.depreciation().getString()+"' WHERE ID ='"+this.id+"';" ;
+			String query = "UPDATE Stock SET Name = '"+this.name+"', Weight = '"+this.getWeight()+"', Depreciation = '"+ this.getDepreciation()+"' WHERE ID ='"+this.id+"';" ;
 			con = Connector.connect();
 			Statement s = con.createStatement();
 			s.execute(query);
