@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" fx:controller = "AddSaleController" prefHeight="545.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#336633" height="68.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="373.0" />
+      <Label layoutX="80.0" layoutY="13.0" text="အေရာင္းစာရင္းအသစ္" textFill="WHITE">
+         <font>
+            <Font name="Zawgyi-One" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id = "exit" layoutX="250.0" layoutY="488.0" onAction="#exit" prefHeight="0.0" prefWidth="109.0" style="-fx-background-color: #ee3333;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</Pane>
