@@ -60,7 +60,7 @@ public class Item implements Utilities{
 	        }
     }
     
-    public static ResultSet getItem(String tablename)  {
+    public static ResultSet getItems(String tablename)  {
     	ResultSet rs = null;
     	try {
     		String query = "SELECT * FROM "+ tablename + ";";
@@ -83,10 +83,27 @@ public class Item implements Utilities{
 			con = Connector.connect();
 			Statement s = con.createStatement();
 			s.execute(query);
+			con.close();
 			return(1);
 		}
 		catch(SQLException sq) {
 			return(0);
 		}
+	}
+	
+	public static int deleteData(int id) {
+		int success = 0;
+		try {
+		Connection con = Connector.connect();
+		String query = "DELETE FROM Stock where id = " + id;
+		Statement s = con.createStatement();
+		s.execute(query);
+		con.close();
+		success = 1;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			success = 0;
+		}
+		return success;
 	}
 }

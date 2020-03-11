@@ -53,21 +53,30 @@ public class AddSaleController {
 	
 	///add sale data to Database
 	public void addData() {
+		if(someFieldsNULL() == false) {
 			Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
 			buyer.add();
 			Sale sale = new Sale(Character.getNumericValue(item_id.getText().charAt(0)),buyer.getID());
 			System.out.println(sale.id+" "+sale.customerID + " "+sale.itemID);
+			Item.deleteData(sale.itemID);
+		}
 	}
 	
 	public void updateItemDesc() {
+		int a = 0;
 		///refresh the item description field
 		item_desc.setText("");
+		
+		if(someFieldsNULL() == false) {
+			a = Character.getNumericValue(item_id.getText().charAt(0));
+		}
 		//try-catch for setting the item description according to item_id;
+		
 		try {
-			
+			System.out.println(a);
 			//get a connection and data from Stock;
 			Connection c = Connector.connect();
-			String sql = "SELECT * FROM Stock where ID = "+item_id.getText().toUpperCase()+";";
+			String sql = "SELECT * FROM Stock where ID = "+a+";";
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
@@ -86,5 +95,23 @@ public class AddSaleController {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	private boolean someFieldsNULL() {
+		boolean a = false;
+		if(cus_name.equals(null) || cus_name.equals("")) {
+			if(cus_phone.equals(null)||cus_name.equals("")) {
+				if(cus_addr.equals(null) || cus_addr.equals("")) {
+					if(item_id.equals(null)||item_id.equals("")) {
+						a =  true;
+					}
+				}
+			}
+		}
+		else {
+			a = false;
+		}
+		return a;
 	}
 }
