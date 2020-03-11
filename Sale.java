@@ -5,17 +5,17 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class Sale implements Utilities{
-	String id;
-	String itemID;
-	String customerID;
+	int id;
+	int itemID;
+	int customerID;
 	Date dateofSale;
 	
-	static String latestId = getLatestID();
-	public Sale( String item,String customer) {
+	static int latestId = getLatestID();
+	public Sale( int itemID,int customerID) {
 		
 		this.id = latestId;
-		this.itemID = item;
-		this.customerID = customer;
+		this.itemID = itemID;
+		this.customerID = customerID;
 		this.dateofSale = new Date();
 	}
 	@Override
@@ -29,6 +29,7 @@ public class Sale implements Utilities{
 		Statement s =c.createStatement();
 	
 			s.execute(sql);
+			c.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,18 +37,19 @@ public class Sale implements Utilities{
 		return 0;
 	}
 	
-	public static String getLatestID() {
+	public static int getLatestID() {
 		Connection c = Connector.connect();
-		String result = null;
+		int result = 0;
 		String sql = "SELECT MAX(ID) FROM Sale";
 		try {
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			if(rs.next()) {
-				result = (rs.getString(1));
+				result = rs.getInt(1)+1;
+				c.close();
 			}
 			else {
-				result = null;
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

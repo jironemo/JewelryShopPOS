@@ -51,6 +51,7 @@ public class Item implements Utilities{
 		 		con = Connector.connect();
 		 		Statement s = con.createStatement();
 		 		s.execute(query);
+		 		con.close();
 		 		return(1);
 	        }
 	        catch(SQLException sq){

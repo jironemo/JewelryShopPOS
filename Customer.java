@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -6,26 +7,46 @@ import java.sql.Statement;
  * Customer
  */
 public class Customer implements Utilities{
-
-    private String id,name, address, phonenumber;
+	private int id;
+    private String name, address, phonenumber;
 
     public Customer() {
-    	this.id = "";
+    	this.id = 0;
         this.name = "";
         this.address = "";
         this.phonenumber = "";
     }
-    public Customer(String id, String name, String address,String phonenumber) {
-    	this.id = id;
+    public Customer( String name, String address,String phonenumber) {
+    	this.id = getLatestID();
         this.name = name;
         this.address = address;
         this.phonenumber = phonenumber;;
     }
-    public String getID() {
+    public static int getLatestID() {
+		Connection c = Connector.connect();
+		int result = 0;
+		String sql = "SELECT MAX(ID) FROM Customer";
+		try {
+			Statement s = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			if(rs.next()) {
+				result = rs.getInt(1)+1;
+				c.close();
+			}
+			else {
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public int getID() {
 		return id;
 	}
 
-    public void setID(String id) {
+    public void setID(int id) {
     	this.id = id;
     }
     
@@ -56,11 +77,13 @@ public class Customer implements Utilities{
 	public int add() {
 		try{
 	 		Connection con = null;
-	 		String query =  "INSERT INTO CUSTOMER VALUES ("+" '"+this.getID()+"', '"+this.getName()+"', '"+this.getAddress()+"','"+this.getPhonenumber()+"');";
+	 		String query =  "INSERT INTO CUSTOMER VALUES ("+" "+this.getID()+", '"+this.getName()+"', '"+this.getAddress()+"','"+this.getPhonenumber()+"');";
 	 		con = Connector.connect();
 	 		Statement s = con.createStatement();
 	 		s.execute(query);
+	 		con.close();
 	 		return(1);
+	 		
         }
         catch(SQLException sq){
         	sq.printStackTrace();
@@ -76,6 +99,7 @@ public class Customer implements Utilities{
 			con = Connector.connect();
 			Statement s = con.createStatement();
 			s.execute(query);
+			con.close();
 			return(1);
 		}
 		catch(SQLException sq) {
