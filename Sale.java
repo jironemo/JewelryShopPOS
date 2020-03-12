@@ -22,8 +22,7 @@ public class Sale implements Utilities{
 	public int add() {
 
 		// TODO Auto-generated method stub
-		String sql = String.format("INSERT INTO TABLE Sale values ('%s','%s','%s',",this.id,this.itemID,this.customerID);
-		sql.concat(this.dateofSale+");");
+		String sql = String.format("INSERT INTO Sale values ('%s','%s','%s',DATE());",this.id,this.itemID,this.customerID);
 		try {
 		Connection c = Connector.connect();
 		Statement s =c.createStatement();

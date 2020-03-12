@@ -30,11 +30,11 @@ public class Customer implements Utilities{
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			if(rs.next()) {
-				result = rs.getInt(1)+1;
-				c.close();
+					result = rs.getInt(1)+1;
+					c.close();
 			}
 			else {
-				
+				result = 0;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

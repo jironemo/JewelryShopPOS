@@ -57,6 +57,7 @@ public class AddSaleController {
 			Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
 			buyer.add();
 			Sale sale = new Sale(Character.getNumericValue(item_id.getText().charAt(0)),buyer.getID());
+			sale.add();
 			System.out.println(sale.id+" "+sale.customerID + " "+sale.itemID);
 			Item.deleteData(sale.itemID);
 		}
