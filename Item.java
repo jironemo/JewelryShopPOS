@@ -106,4 +106,23 @@ public class Item implements Utilities{
 		}
 		return success;
 	}
+
+	public static String get(String column, int id) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT " + column + " FROM Stock where id = " + id;
+		String result = "";
+		Connection c = Connector.connect();
+		try {
+			Statement s  = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+				while(rs.next()) {
+					result = rs.getString(0);
+					System.out.println(result);
+				}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

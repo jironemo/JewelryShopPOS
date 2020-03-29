@@ -8,6 +8,8 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -22,6 +24,7 @@ public class AddSaleController {
 	@FXML
 	TextArea item_desc;
 	
+
 	
 	//constructor for no reason what so ever;
 	public AddSaleController() {}
@@ -53,6 +56,10 @@ public class AddSaleController {
 	
 	///add sale data to Database
 	public void addData() {
+
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setContentText("အေရာင္းစာရင္းထည့္သြင္းမည္။");
+		alert.show();
 		if(someFieldsNULL() == false) {
 			Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
 			buyer.add();
@@ -60,51 +67,57 @@ public class AddSaleController {
 			sale.add();
 			System.out.println(sale.id+" "+sale.customerID + " "+sale.itemID);
 			Item.deleteData(sale.itemID);
+
+		}
+		else {
+			alert.setContentText("မေအာင္ျမင္ပါ");
+			alert.show();
 		}
 	}
 	
 	public void updateItemDesc() {
-		int a = 0;
 		///refresh the item description field
 		item_desc.setText("");
 		
 		if(someFieldsNULL() == false) {
-			a = Character.getNumericValue(item_id.getText().charAt(0));
-		}
-		//try-catch for setting the item description according to item_id;
-		
-		try {
-			System.out.println(a);
-			//get a connection and data from Stock;
-			Connection c = Connector.connect();
-			String sql = "SELECT * FROM Stock where ID = "+a+";";
-			Statement s = c.createStatement();
-			ResultSet rs = s.executeQuery(sql);
-			
-			if(rs.next() != false) {
-				item_desc.setText("ပစၥည္းအမည္: "+rs.getString(2)+"\n"+"ပစၥည္းအေလးခ်ိန္: "+
-						new Weight(rs.getString(3)).getKyat()+" က်ပ္ "+new Weight(rs.getString(3)).getPel()+
-						" ပဲ"+new Weight(rs.getString(3)).getYway()+" ေ႐ြး "+"\n အေလ်ာ့တြက္: "+
-						new Weight(rs.getString(4)).getKyat()+" က်ပ္ "+new Weight(rs.getString(4)).getPel()+
-						" ပဲ"+new Weight(rs.getString(4)).getYway()+" ေ႐ြး ");
+			int a = Character.getNumericValue(item_id.getText().charAt(0));
+			try {
+				System.out.println(a);
+				//get a connection and data from Stock;
+				Connection c = Connector.connect();
+				String sql = "SELECT * FROM Stock where ID = "+a+";";
+				Statement s = c.createStatement();
+				ResultSet rs = s.executeQuery(sql);
+				
+				if(rs.next() != false) {
+					item_desc.setText("ပစၥည္းအမည္: "+rs.getString(2)+"\n"+"ပစၥည္းအေလးခ်ိန္: "+
+							new Weight(rs.getString(3)).getKyat()+" က်ပ္ "+new Weight(rs.getString(3)).getPel()+
+							" ပဲ"+new Weight(rs.getString(3)).getYway()+" ေ႐ြး "+"\n အေလ်ာ့တြက္: "+
+							new Weight(rs.getString(4)).getKyat()+" က်ပ္ "+new Weight(rs.getString(4)).getPel()+
+							" ပဲ"+new Weight(rs.getString(4)).getYway()+" ေ႐ြး ");
+				}
+				else {
+					item_desc.setText("ပစၥည္းမရွိပါ ျပန္လည္စစ္ေဆးေပးပါ");
+				}
+				c.close();
 			}
-			else {
-				item_desc.setText("ပစၥည္းမရွိပါ ျပန္လည္စစ္ေဆးေပးပါ");
+			catch(SQLException e) {
+				e.printStackTrace();
 			}
-			c.close();
 		}
-		catch(SQLException e) {
-			e.printStackTrace();
+		else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.show();
 		}
 	}
 	
 	
 	private boolean someFieldsNULL() {
 		boolean a = false;
-		if(cus_name.equals(null) || cus_name.equals("")) {
-			if(cus_phone.equals(null)||cus_name.equals("")) {
-				if(cus_addr.equals(null) || cus_addr.equals("")) {
-					if(item_id.equals(null)||item_id.equals("")) {
+		if(cus_name.getText().equals(null) || cus_name.getText().equals("")) {
+			if(cus_phone.getText().equals(null)||cus_name.getText().equals("")) {
+				if(cus_addr.getText().equals(null) || cus_addr.getText().equals("")) {
+					if(item_id.getText().equals(null)||item_id.getText().equals("")) {
 						a =  true;
 					}
 				}

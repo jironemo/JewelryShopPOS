@@ -13,7 +13,7 @@ public class Sale implements Utilities{
 	static int latestId = getLatestID();
 	public Sale( int itemID,int customerID) {
 		
-		this.id = latestId;
+		 this.id = latestId;
 		this.itemID = itemID;
 		this.customerID = customerID;
 		this.dateofSale = new Date();

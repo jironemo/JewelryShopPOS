@@ -15,6 +15,7 @@ public class MainMenu extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainMenu.class.getResource("Dashboard.fxml"));
 		Scene scene = new Scene(loader.load());
+		primaryStage.centerOnScreen();
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Main Menu");
 		primaryStage.show();
