@@ -12,19 +12,29 @@ public class Item implements Utilities{
     String name;
     Weight weight;
     Weight depreciation;
+    String stock;
 
-    public Item() {
+    public String getStock() {
+		return stock;
+	}
+
+	public void setStock_status(String stock) {
+		this.stock = stock;
+	}
+
+	public Item() {
         this.id = "";
         this.name = "";
         this.weight = new Weight();
         this.depreciation = new Weight();
     }
 
-    public Item(String id, String name, Weight weight, Weight depreciation) {
+    public Item(String id, String name, Weight weight, Weight depreciation,String stock) {
         this.id = id;
         this.name = name;
         this.weight = weight;
         this.depreciation = depreciation;
+        this.stock = stock;
     }
 
     public String getId() {
@@ -59,7 +69,7 @@ public class Item implements Utilities{
 	        	return(0);
 	        }
     }
-    
+     
     public static ResultSet getItems(String tablename)  {
     	ResultSet rs = null;
     	try {
@@ -91,11 +101,11 @@ public class Item implements Utilities{
 		}
 	}
 	
-	public static int deleteData(int id) {
+	public static int setSold(int id) {
 		int success = 0;
 		try {
 		Connection con = Connector.connect();
-		String query = "DELETE FROM Stock where id = " + id;
+		String query = "UPDATE Stock set stock_status = 'sold' where id = " + id;
 		Statement s = con.createStatement();
 		s.execute(query);
 		con.close();

@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -10,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -49,29 +51,34 @@ public class AddSaleController {
 	
 	///exit this stage/ AddSale form
 	public void exit() {
-		DashboardController.pagetracker = 1;
 		((Stage)exit.getScene().getWindow()).close();
 	}
 	
 	
 	///add sale data to Database
 	public void addData() {
+		Alert alert2 = new Alert(AlertType.INFORMATION);
 
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setContentText("အေရာင္းစာရင္းထည့္သြင္းမည္။");
-		alert.show();
 		if(someFieldsNULL() == false) {
-			Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
-			buyer.add();
-			Sale sale = new Sale(Character.getNumericValue(item_id.getText().charAt(0)),buyer.getID());
-			sale.add();
-			System.out.println(sale.id+" "+sale.customerID + " "+sale.itemID);
-			Item.deleteData(sale.itemID);
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setContentText("အေရာင္းစာရင္းထည့္သြင္းမည္။");
+			Optional<ButtonType> result = alert.showAndWait();
+			if (result.get() == ButtonType.OK){
+
+				Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
+				buyer.add();
+				Sale sale = new Sale(Character.getNumericValue(item_id.getText().charAt(0)),buyer.getID());
+				sale.add();
+				System.out.println(sale.id+" "+sale.customerID + " "+sale.itemID);
+				Item.setSold(sale.itemID);
+			} else {
+			    // ... user chose CANCEL or closed the dialog
+			}
 
 		}
 		else {
-			alert.setContentText("မေအာင္ျမင္ပါ");
-			alert.show();
+			alert2.setContentText("မေအာင္ျမင္ပါ");
+			alert2.show();
 		}
 	}
 	
@@ -85,7 +92,7 @@ public class AddSaleController {
 				System.out.println(a);
 				//get a connection and data from Stock;
 				Connection c = Connector.connect();
-				String sql = "SELECT * FROM Stock where ID = "+a+";";
+				String sql = "SELECT * FROM Stock where ID = "+a+" and stock_status = 'stock';";
 				Statement s = c.createStatement();
 				ResultSet rs = s.executeQuery(sql);
 				
@@ -104,10 +111,6 @@ public class AddSaleController {
 			catch(SQLException e) {
 				e.printStackTrace();
 			}
-		}
-		else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.show();
 		}
 	}
 	

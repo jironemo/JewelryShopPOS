@@ -2,10 +2,8 @@
 import java.io.IOException;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class MainMenu extends Application {
@@ -16,7 +14,7 @@ public class MainMenu extends Application {
 		loader.setLocation(MainMenu.class.getResource("Dashboard.fxml"));
 		Scene scene = new Scene(loader.load());
 		primaryStage.centerOnScreen();
-		primaryStage.setScene(scene);
+		primaryStage.setScene(scene); 
 		primaryStage.setTitle("Main Menu");
 		primaryStage.show();
 	}
