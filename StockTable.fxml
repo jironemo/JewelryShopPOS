@@ -1,23 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0"  fx:controller = "StockTableController" prefWidth="832.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TableView fx:id="stocks" layoutX="14.0" layoutY="80.0" prefHeight="569.0" prefWidth="700.0">
-        <columns>
-          <TableColumn fx:id="id" prefWidth="115.0" text="ID" />
-          <TableColumn fx:id="name" prefWidth="234.0" text="NAME" />
-            <TableColumn fx:id="weight" prefWidth="267.0" text="Weight" />
-            <TableColumn fx:id="depreciation" prefWidth="75.0" text="Depriciation" />
-            <TableColumn fx:id="stock" prefWidth="75.0" text="Stock Status" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </children>
-</AnchorPane>
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTableController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="768.0" prefWidth="1024.0">
+         <children>
+            <Pane layoutX="7.0" style="-fx-background-color: #336633;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="457.0" layoutY="52.0" prefHeight="41.0" prefWidth="213.0" text="စိန္ေ႐ႊရတနာ အေရာင္းဆိုင္" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Zawgyi-One" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="469.0" prefHeight="52.0" prefWidth="188.0" text="ေအာင္ခ်မ္းသာ" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Zawgyi-One" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXToggleButton fx:id="stockToggle" layoutX="691.0" layoutY="378.0" onAction="#toggleAction" prefHeight="60.0" prefWidth="302.0" text="ေရာင္းထားေသာပစၥည္းမ်ားလဲၾကည့္မည္" toggleColor="#338833" toggleLineColor="#336633" unToggleColor="#797979" unToggleLineColor="#b5b5b5">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </JFXToggleButton>
+            <JFXTextField fx:id="item_id" editable="false" focusColor="#336633" layoutX="807.0" layoutY="428.0" prefHeight="31.0" prefWidth="175.0">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="item_name" focusColor="#336633" layoutX="807.0" layoutY="481.0" prefHeight="31.0" prefWidth="175.0">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="item_weight" focusColor="#336633" layoutX="807.0" layoutY="540.0" prefHeight="31.0" prefWidth="175.0">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="item_depreciation" focusColor="#336633" layoutX="806.0" layoutY="610.0" prefHeight="31.0" prefWidth="175.0">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="687.0" layoutY="622.0" text="အေလ်ာ့တြက္">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="704.0" layoutY="554.0" text="အေလးခ်ိန္">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="688.0" layoutY="495.0" text="ပစၥည္းအမည္">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="688.0" layoutY="440.0" text="ပစၥည္းအမွတ္">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </Label>
+            <TableView fx:id="stocks" layoutX="8.0" layoutY="115.0" onMouseClicked="#getSelectedData" prefHeight="628.0" prefWidth="637.0">
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <columns>
+                  <TableColumn fx:id="id" editable="false" prefWidth="115.0" style="-fx-font-family: Zawgyi-One;" text="စဥ္" />
+                  <TableColumn fx:id="name" editable="false" prefWidth="234.0" style="-fx-font-family: Zawgyi-One;" text="ပစၥည္းအမည္" />
+                  <TableColumn fx:id="weight" editable="false" prefWidth="144.0" style="-fx-font-family: Zawgyi-One;" text="အေလးခ်ိန္" />
+                  <TableColumn fx:id="depreciation" editable="false" prefWidth="135.0" style="-fx-font-family: Zawgyi-One;" text="အေလ်ာ့တြက္" />
+                  <TableColumn fx:id="stock" editable="false" prefWidth="122.0" style="-fx-font-family: Zawgyi-One;" text="ပစၥည္း႐ွိမရွိ" />
+               </columns>
+            </TableView>
+            <JFXButton fx:id="delete_btn" disable="true" layoutX="800.0" layoutY="689.0" onAction="#deleteClick" style="-fx-background-color: #ee3333; -fx-border-width: 2px; -fx-border-color: #ee3333;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="update_btn" disable="true" layoutX="893.0" layoutY="689.0" onAction="#updateClick" style="-fx-border-color: #336633; -fx-border-width: 2px;" text="Update" textFill="#336633">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="826.0" layoutY="116.0" onAction="#callAddStock" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: #336633;" text="ပစၥည္းအသစ္ထည့္မည္" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="16.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="748.0" layoutY="185.0" text="အခ်က္အလက္ျပင္ရန္" textFill="#336633">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="686.0" layoutY="222.0" prefHeight="156.0" prefWidth="311.0" text="1. အခ်က္အလက္ျပင္ဆင္ရန္ ဇယားထဲမွ ပစၥည္းတစ္မ်ိဳးကုိ ေရြးပါ&#10;2.ေရြးထားေသာ ပစၥည္း၏အခ်က္အလက္မ်ားက်လာပါက&#10; ျပင္ဆင္ခြင့္ရၿပီျဖစ္ပါသည္&#10;3.ျပင္ဆင္ထားေသာ အခ်က္အလက္မ်ား အတည္ျပဳရန္ update&#10;ကိုႏွိပ္ပါ&#10;4.ပစၥည္းအားဖ်က္ရန္ Delete ကို ႏွိပ္ပါ&#10;5.ေရာင္းခ်ၿပီးေသာပစၥည္းမ်ားအားျပင္ဆင္ခြင့္မ႐ွိပါ" textFill="RED">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="682.0" layoutY="116.0" onAction="#refreshTable" prefHeight="55.0" prefWidth="132.0" style="-fx-background-color: #336633;" text="Refresh Table" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

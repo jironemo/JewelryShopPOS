@@ -1,12 +1,9 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -57,42 +54,53 @@ public class AddSaleController {
 	
 	///add sale data to Database
 	public void addData() {
-		Alert alert2 = new Alert(AlertType.INFORMATION);
-
+		Boolean b = new Boolean(someFieldsNULL());
+		System.out.println(b.toString());
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert2 = new Alert(AlertType.ERROR);
+		alert.getDialogPane().setStyle("-fx-font-family:Zawgyi-One");
+		alert2.getDialogPane().setStyle("-fx-font-family:Zawgyi-One");
 		if(someFieldsNULL() == false) {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setContentText("အေရာင္းစာရင္းထည့္သြင္းမည္။");
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
-
-				Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
-				buyer.add();
-				Sale sale = new Sale(Character.getNumericValue(item_id.getText().charAt(0)),buyer.getID());
-				sale.add();
-				System.out.println(sale.id+" "+sale.customerID + " "+sale.itemID);
-				Item.setSold(sale.itemID);
-			} else {
-			    // ... user chose CANCEL or closed the dialog
+			String id = this.item_id.getText();
+			Item k = new Item(id);
+			if(k.notSold()) {
+				alert.setContentText("အေရာင္းစာရင္းထည့္သြင္းမည္။");
+				Optional<ButtonType> result = alert.showAndWait();
+				if(result.get() == ButtonType.OK) {
+					Customer buyer = new Customer(cus_name.getText(),cus_addr.getText(),cus_phone.getText());
+					buyer.add();
+					Sale sale = new Sale(k.id,buyer.getID());
+					sale.add();
+					Item.setSold(item_id.getText());
+					alert2.setAlertType(AlertType.INFORMATION);
+					alert2.setTitle("Successful!");
+					alert2.setContentText("အေရာင္းစာရင္းထည့္သြင္းၿပီးပါၿပီ");
+					alert2.show();
+				}
+			}	else {
+				alert2.setAlertType(AlertType.ERROR);
+				alert2.setTitle("ပစၥည္းမရွိပါ");
+				alert2.setContentText("ပစၥည္းရွာမေတြ႕ပါ");
+				alert2.show();
 			}
-
-		}
-		else {
-			alert2.setContentText("မေအာင္ျမင္ပါ");
+		}else {
+			alert2.setAlertType(AlertType.ERROR);
+			alert2.setTitle("ပစၥည္းမရွိပါ");
+			alert2.setContentText("အခ်က္အလက္မျပည့္စံုပါ");
 			alert2.show();
 		}
+		exit();
 	}
 	
 	public void updateItemDesc() {
 		///refresh the item description field
 		item_desc.setText("");
-		
-		if(someFieldsNULL() == false) {
-			int a = Character.getNumericValue(item_id.getText().charAt(0));
 			try {
-				System.out.println(a);
+				int id = Integer.parseInt((item_id.getText()));
+				System.out.println(id);
 				//get a connection and data from Stock;
 				Connection c = Connector.connect();
-				String sql = "SELECT * FROM Stock where ID = "+a+" and stock_status = 'stock';";
+				String sql = "SELECT * FROM Stock where ID = "+id+" and stock_status = 'stock';";
 				Statement s = c.createStatement();
 				ResultSet rs = s.executeQuery(sql);
 				
@@ -108,26 +116,25 @@ public class AddSaleController {
 				}
 				c.close();
 			}
-			catch(SQLException e) {
-				e.printStackTrace();
+			catch(Exception e) {
 			}
-		}
 	}
 	
 	
 	private boolean someFieldsNULL() {
 		boolean a = false;
-		if(cus_name.getText().equals(null) || cus_name.getText().equals("")) {
-			if(cus_phone.getText().equals(null)||cus_name.getText().equals("")) {
-				if(cus_addr.getText().equals(null) || cus_addr.getText().equals("")) {
-					if(item_id.getText().equals(null)||item_id.getText().equals("")) {
-						a =  true;
-					}
-				}
-			}
+		if(cus_phone.getText()== null||cus_phone.getText().trim().equals("")) {
+			a = true;
 		}
-		else {
-			a = false;
+		if(cus_name.getText()== null || cus_name.getText().trim().equals("")) {
+			a = true;
+		}
+		if(cus_addr.getText()== null || cus_addr.getText().trim().equals("")) {
+			a = true;
+		}
+
+		if(item_id.getText() == null ||item_id.getText().trim().equals("")) {
+						a =  true;
 		}
 		return a;
 	}

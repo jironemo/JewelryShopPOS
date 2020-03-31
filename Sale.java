@@ -5,13 +5,13 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class Sale implements Utilities{
-	int id;
-	int itemID;
+	String id;
+	String itemID;
 	int customerID;
 	Date dateofSale;
 	
-	static int latestId = getLatestID();
-	public Sale( int itemID,int customerID) {
+	static String latestId = getLatestID();
+	public Sale( String itemID,int customerID) {
 		
 		 this.id = latestId;
 		this.itemID = itemID;
@@ -20,23 +20,21 @@ public class Sale implements Utilities{
 	}
 	@Override
 	public int add() {
-
 		// TODO Auto-generated method stub
-		String sql = String.format("INSERT INTO Sale values ('%s','%s','%s',DATE());",this.id,this.itemID,this.customerID);
-		try {
-		Connection c = Connector.connect();
-		Statement s =c.createStatement();
-	
-			s.execute(sql);
-			c.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 0;
+			String sql = String.format("INSERT INTO Sale(Item_ID,Cus_ID,DateOfSale) values ('%s','%s',DATE());",this.id,this.itemID,this.customerID);
+			try {
+			Connection c = Connector.connect();
+			Statement s =c.createStatement();
+				s.execute(sql);
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return 1;
 	}
 	
-	public static int getLatestID() {
+	public static String getLatestID() {
 		Connection c = Connector.connect();
 		int result = 0;
 		String sql = "SELECT MAX(ID) FROM Sale";
@@ -54,7 +52,7 @@ public class Sale implements Utilities{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return result;
+		return Integer.toString(result);
 	}
 	
 	@Override

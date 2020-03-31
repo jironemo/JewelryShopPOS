@@ -3,6 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 /**
  * Item
  */
@@ -37,7 +38,35 @@ public class Item implements Utilities{
         this.stock = stock;
     }
 
-    public String getId() {
+    public Item(Item selectedItem) {
+		// TODO Auto-generated constructor stub
+    	 this.id = selectedItem.id;
+         this.name = selectedItem.name;
+         this.weight = selectedItem.weight;
+         this.depreciation = selectedItem.depreciation;
+         this.stock = selectedItem.stock;
+	}
+
+	public Item(String itemID) {
+		// TODO Auto-generated constructor stub
+		Connection c = Connector.connect();
+		try {
+			Statement s = c.createStatement();
+			ResultSet r = s.executeQuery("SELECT * FROM Stock where id = " + itemID );
+			r.next();
+			this.id = r.getString("ID");
+			this.name = r.getString("Name");
+			this.weight = new Weight(r.getString("Weight"));
+			this.depreciation = new Weight(r.getString("Depreciation"));
+			this.stock = r.getString("stock_status");
+			c.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+		}
+		
+	}
+
+	public String getId() {
         return (this.id);
     }
 
@@ -101,11 +130,11 @@ public class Item implements Utilities{
 		}
 	}
 	
-	public static int setSold(int id) {
+	public static int setSold(String itemID) {
 		int success = 0;
 		try {
 		Connection con = Connector.connect();
-		String query = "UPDATE Stock set stock_status = 'sold' where id = " + id;
+		String query = "UPDATE Stock set stock_status = 'sold' where id = " + itemID;
 		Statement s = con.createStatement();
 		s.execute(query);
 		con.close();
@@ -117,6 +146,12 @@ public class Item implements Utilities{
 		return success;
 	}
 
+	public String toString() {
+		String string;
+		string = this.id + " " + this.name + " " + this.getWeight() +" "+ this.getDepreciation();
+		return string;
+		
+	}
 	public static String get(String column, int id) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT " + column + " FROM Stock where id = " + id;
@@ -126,7 +161,7 @@ public class Item implements Utilities{
 			Statement s  = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 				while(rs.next()) {
-					result = rs.getString(0);
+					result = rs.getString(1);
 					System.out.println(result);
 				}
 		}
@@ -135,4 +170,21 @@ public class Item implements Utilities{
 		}
 		return result;
 	}
+	
+		public boolean notSold() {
+			// TODO Auto-generated method stub
+			String stock_data = null;
+			boolean k = false;
+			try {
+				 stock_data = get("stock_status",Integer.parseInt(this.id));
+					if(stock_data.equals("stock")) {
+						k =(true);
+					}
+					else k = false;
+		}catch(Exception e){
+				k = false;
+		}
+			return(k);
+	}
+		
 }
