@@ -9,7 +9,22 @@ public class Sale implements Utilities{
 	String itemID;
 	int customerID;
 	Date dateofSale;
+	String itemName;
+	String customerName;
 	
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
 	static String latestId = getLatestID();
 	public Sale( String itemID,int customerID) {
 		
@@ -21,7 +36,7 @@ public class Sale implements Utilities{
 	@Override
 	public int add() {
 		// TODO Auto-generated method stub
-			String sql = String.format("INSERT INTO Sale(Item_ID,Cus_ID,DateOfSale) values ('%s','%s',DATE());",this.id,this.itemID,this.customerID);
+			String sql = String.format("INSERT INTO Sale(Item_ID,Cus_ID,DateOfSale) values ('%s','%s',DATE());",this.itemID,this.customerID);
 			try {
 			Connection c = Connector.connect();
 			Statement s =c.createStatement();
@@ -54,11 +69,28 @@ public class Sale implements Utilities{
 		}
 		return Integer.toString(result);
 	}
-	
 	@Override
 	public int updateData() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	public static String get(String column, int id) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT " + column + " FROM Sale where id = " + id;
+		String result = "";
+		Connection c = Connector.connect();
+		try {
+			Statement s  = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+				while(rs.next()) {
+					result = rs.getString(1);
+				}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

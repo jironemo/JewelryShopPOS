@@ -74,14 +74,16 @@ public class StockTableController {
 		if(selected == true) {
 			this.getAllData();
 			stocks.getSortOrder().add(stock);
+
 			this.delete_btn.setDisable(true);
 			this.update_btn.setDisable(true);
+			stocks.setFocusTraversable(false);
 		}
 		else {
 			this.getOnlyUnsold();
-			this.delete_btn.setDisable(false);
-			this.update_btn.setDisable(false);
+			stocks.setFocusTraversable(true);
 		}
+		refreshBoxes();
 	}
 	public void getOnlyUnsold() {
 		ObservableList<Item> list = FXCollections.observableArrayList();
@@ -111,12 +113,19 @@ public class StockTableController {
 		
 		if (stocks.getSelectionModel().getSelectedItem() != null) {
 			k =new Item(stocks.getSelectionModel().getSelectedItem());
-			item_id.setText(k.id);
-			item_name.setText(k.name);
-			item_weight.setText(k.getWeight());
-			item_depreciation.setText(k.getDepreciation());
-			delete_btn.setDisable(false);
-			update_btn.setDisable(false);
+			if(k.stock.equals("sold")) {
+				refreshBoxes();
+				delete_btn.setDisable(true);
+				update_btn.setDisable(true);
+			}
+			else {
+				item_id.setText(k.id);
+				item_name.setText(k.name);
+				item_weight.setText(k.getWeight());
+				item_depreciation.setText(k.getDepreciation());
+				delete_btn.setDisable(false);
+				update_btn.setDisable(false);
+			}
 		}
 
 	}
@@ -147,22 +156,12 @@ public class StockTableController {
 	}
 	
 	public void callAddStock() {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainMenu.class.getResource("AddStock.fxml"));
-		Scene scene = null;
 		try {
-			scene = new Scene(loader.load());
+			Utilities.openForm("AddStock.fxml", StageStyle.UNDECORATED);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Stage s = new Stage();
-		s.initModality(Modality.WINDOW_MODAL);
-		s.initOwner(item_id.getScene().getWindow());
-		s.setScene(scene);
-		s.centerOnScreen();
-		s.initStyle(StageStyle.UNDECORATED);
-		s.show();
 	}
 	
 	public void refreshTable() {

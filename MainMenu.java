@@ -16,6 +16,7 @@ public class MainMenu extends Application {
 		primaryStage.centerOnScreen();
 		primaryStage.setScene(scene); 
 		primaryStage.setTitle("Main Menu");
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 

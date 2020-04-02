@@ -6,6 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 public interface Utilities {
 
 	public int add();
@@ -29,6 +35,18 @@ public interface Utilities {
 	
 	public  int updateData() ;
 
+	public static void openForm(String formname,StageStyle c) throws IOException{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainMenu.class.getResource(formname));
+		Scene scene = new Scene(loader.load());
+
+		Stage s = new Stage(c);
+		s.initModality(Modality.WINDOW_MODAL);
+		s.setScene(scene);
+		s.centerOnScreen();
+		s.setResizable(false);
+		s.show();
+	}
 	
 	public static String getgold() {
 		int k = 0;

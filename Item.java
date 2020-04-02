@@ -162,7 +162,6 @@ public class Item implements Utilities{
 			ResultSet rs = s.executeQuery(sql);
 				while(rs.next()) {
 					result = rs.getString(1);
-					System.out.println(result);
 				}
 		}
 		catch(SQLException e) {

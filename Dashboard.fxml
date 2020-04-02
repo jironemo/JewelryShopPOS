@@ -11,7 +11,7 @@
 
 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1122.0" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
    <content>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="743.0" prefWidth="1122.0">
          <children>
             <Label layoutX="325.0" layoutY="135.0" prefHeight="31.0" prefWidth="37.0" text="က်ပ္">
                <font>
@@ -23,64 +23,64 @@
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="14.0" layoutY="243.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#callAddSale" prefHeight="148.0" prefWidth="200.0" style="-fx-background-color: #335533;" text="Add New Sale&#10;အေရာင္းစာရင္းသစ္&#10;" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton layoutX="17.0" layoutY="216.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#callAddSale" prefHeight="120.0" prefWidth="240.0" style="-fx-background-color: #333366;" text="Add New Sale&#10;အေရာင္းစာရင္းသစ္&#10;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="433.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="120.0" prefWidth="240.0" style="-fx-background-color: #335533;" text="Add New Order&#10;အမွာသစ္&#10;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="20.0" layoutY="563.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openStocks" prefHeight="120.0" prefWidth="140.0" style="-fx-background-color: #335533;" text="Stock&#10;ဆိုင္ရွိပစၥည္းမ်ား" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="265.0" layoutY="433.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="120.0" prefWidth="240.0" style="-fx-background-color: #335533;" text="Add New Pawn Deal&#10;အေပါင္ပစၥည္းသစ္" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="367.0" layoutY="563.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="120.0" prefWidth="140.0" style="-fx-background-color: #335533;" text="Orders&#10;လက္႐ွိအမွာမ်ား" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="165.0" layoutY="563.0" prefHeight="120.0" prefWidth="196.0" style="-fx-background-color: #335533;" text="Pawned Items&#10;ဆိုင္ရွိအေပါင္ပစၥည္းမ်ား" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="enableGoldVal" layoutX="362.0" layoutY="129.0" onAction="#enableGoldVal" prefHeight="43.0" prefWidth="118.0" style="-fx-background-color: #335533;" text="ျပင္ဆင္မည္" textFill="WHITE">
                <font>
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="226.0" layoutY="244.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="146.0" prefWidth="200.0" style="-fx-background-color: #335533;" text="Add New Order&#10;အမွာသစ္&#10;" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="14.0" layoutY="417.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#openStocks" prefHeight="148.0" prefWidth="200.0" style="-fx-background-color: #335533;" text="Stock&#10;ဆိုင္ရွိပစၥည္းမ်ား" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="443.0" layoutY="242.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #335533;" text="Add New Pawn Deal&#10;အေပါင္ပစၥည္းသစ္" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="443.0" layoutY="417.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="148.0" prefWidth="200.0" style="-fx-background-color: #335533;" text="Orders&#10;လက္႐ွိအမွာမ်ား" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="226.0" layoutY="416.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #335533;" text="Pawned Items&#10;ဆိုင္ရွိအေပါင္ပစၥည္းမ်ား" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="enableGoldVal" layoutX="362.0" layoutY="129.0" onAction="#enableGoldVal" prefHeight="43.0" prefWidth="118.0" style="-fx-background-color: #336633;" text="ျပင္ဆင္မည္" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="18.0" />
-               </font>
-            </JFXButton>
-            <Label layoutX="803.0" layoutY="164.0" prefHeight="42.0" prefWidth="149.0" text="ရက္ျပည့္စာရင္း">
+            <Label layoutX="724.0" layoutY="130.0" prefHeight="42.0" prefWidth="149.0" text="ရက္ျပည့္စာရင္း">
                <font>
                   <Font name="Zawgyi-One" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="668.0" layoutY="235.0" prefHeight="42.0" prefWidth="67.0" text="အမွာမ်ား">
+            <Label layoutX="638.0" layoutY="186.0" prefHeight="42.0" prefWidth="67.0" text="အမွာမ်ား">
                <font>
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="891.0" layoutY="235.0" prefHeight="42.0" prefWidth="83.0" text="အေပါင္မ်ား">
+            <Label layoutX="891.0" layoutY="186.0" prefHeight="42.0" prefWidth="83.0" text="အေပါင္မ်ား">
                <font>
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="668.0" layoutY="279.0" prefHeight="286.0" prefWidth="200.0">
+            <ScrollPane layoutX="561.0" layoutY="225.0" prefHeight="400.0" prefWidth="230.0">
                <content>
-                  <ListView fx:id="dueOrderList" prefWidth="200.0" />
+                  <ListView fx:id="dueOrderList" prefHeight="400.0" prefWidth="220.0" />
                </content>
             </ScrollPane>
-            <ScrollPane layoutX="885.0" layoutY="277.0" prefHeight="288.0" prefWidth="200.0">
+            <ScrollPane layoutX="824.0" layoutY="223.0" prefHeight="400.0" prefWidth="230.0">
                <content>
-                  <ListView fx:id="duePawnDealList" prefWidth="200.0" />
+                  <ListView fx:id="duePawnDealList" prefHeight="400.0" prefWidth="220.0" />
                </content>
             </ScrollPane>
             <JFXTextField fx:id="goldval" alignment="CENTER_RIGHT" editable="false" focusColor="#4165d3" layoutX="128.0" layoutY="129.0" unFocusColor="#4d4d4d00">
@@ -92,7 +92,7 @@
                   <Font name="Zawgyi-One" size="11.0" />
                </font>
             </JFXButton>
-            <Rectangle fill="#336633" height="98.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1122.0" />
+            <Rectangle fill="#336633" height="98.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-background-color: #335533;" width="1122.0" />
             <Label alignment="CENTER" layoutX="450.0" layoutY="5.0" prefHeight="52.0" prefWidth="188.0" text="ေအာင္ခ်မ္းသာ" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Zawgyi-One" size="30.0" />
@@ -103,6 +103,16 @@
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </Label>
+            <JFXButton layoutX="15.0" layoutY="340.0" onAction="#openSalesTable" prefHeight="85.0" prefWidth="488.0" style="-fx-background-color: #335533;" text="Sales &#10;အေရာင္းစာရင္းမ်ား" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="262.0" layoutY="216.0" prefHeight="120.0" prefWidth="240.0" style="-fx-background-color: #333366;" text="Buy-in&#10;အ၀ယ္စာရင္းသစ္" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="24.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </content>

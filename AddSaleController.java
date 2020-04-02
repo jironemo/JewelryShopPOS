@@ -1,9 +1,25 @@
+
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
+
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.usermodel.CharacterRun;
+import org.apache.poi.hwpf.usermodel.Paragraph;
+import org.apache.poi.hwpf.usermodel.Range;
+import org.apache.poi.hwpf.usermodel.Section;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,6 +29,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
 
 public class AddSaleController {
 	
@@ -30,7 +47,6 @@ public class AddSaleController {
 	
 	//method to work once the scene is initialized
 	public void initialize() {
-
 		// method that will work when TAB Key is pressed on item id text field;
 		item_id.setOnKeyPressed(new EventHandler<KeyEvent>()
 	    {
@@ -55,7 +71,6 @@ public class AddSaleController {
 	///add sale data to Database
 	public void addData() {
 		Boolean b = new Boolean(someFieldsNULL());
-		System.out.println(b.toString());
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		Alert alert2 = new Alert(AlertType.ERROR);
 		alert.getDialogPane().setStyle("-fx-font-family:Zawgyi-One");
@@ -83,21 +98,57 @@ public class AddSaleController {
 				alert2.setContentText("ပစၥည္းရွာမေတြ႕ပါ");
 				alert2.show();
 			}
+			exportReceipt();
+			exit();
 		}else {
 			alert2.setAlertType(AlertType.ERROR);
 			alert2.setTitle("ပစၥည္းမရွိပါ");
 			alert2.setContentText("အခ်က္အလက္မျပည့္စံုပါ");
 			alert2.show();
 		}
-		exit();
+
 	}
 	
+	public void exportReceipt() {
+		try {
+			 int id = Integer.parseInt(item_id.getText());
+			String[] findText = {"$date","$cusname","$phone","$cusaddr","$itemid","$itemname","$itemWeight","$itemDepreciation"};
+			String[] replaceText = {new Date().toString() ,cus_name.getText(),cus_phone.getText(),cus_addr.getText(),item_id.getText(),Item.get("Name",id),Item.get("Weight", id),Item.get("Depreciation", id)};
+		FileInputStream fis = new FileInputStream("ReceiptTemplate.doc");
+			HWPFDocument in = new HWPFDocument(fis);
+			HWPFDocument out = replaceText(in, findText,replaceText);
+			FileOutputStream fos = new FileOutputStream(System.getProperty("user.home") + "//Desktop//Receipt.doc");
+			out.write(fos);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	private HWPFDocument replaceText(HWPFDocument doc, String findText[], String replaceText[]) {
+        Range r = doc.getRange();
+        for(int a = 0; a < Array.getLength(findText);a++) {
+            for (int i = 0; i < r.numSections(); ++i) {
+                Section s = r.getSection(i);
+                for (int j = 0; j < s.numParagraphs(); j++) {
+                    Paragraph p = s.getParagraph(j);
+                    for (int k = 0; k < p.numCharacterRuns(); k++) {
+                        CharacterRun run = p.getCharacterRun(k);
+                        String text = run.text();
+                        if (text.contains(findText[a])) {
+                            run.replaceText(findText[a], replaceText[a]);
+                        }
+                    }
+                }
+            }
+        }
+        return doc;
+    }
 	public void updateItemDesc() {
 		///refresh the item description field
+		
 		item_desc.setText("");
 			try {
 				int id = Integer.parseInt((item_id.getText()));
-				System.out.println(id);
 				//get a connection and data from Stock;
 				Connection c = Connector.connect();
 				String sql = "SELECT * FROM Stock where ID = "+id+" and stock_status = 'stock';";
