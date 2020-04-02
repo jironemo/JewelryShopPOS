@@ -7,7 +7,7 @@ import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.Optional;
 
@@ -70,7 +70,6 @@ public class AddSaleController {
 	
 	///add sale data to Database
 	public void addData() {
-		Boolean b = new Boolean(someFieldsNULL());
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		Alert alert2 = new Alert(AlertType.ERROR);
 		alert.getDialogPane().setStyle("-fx-font-family:Zawgyi-One");

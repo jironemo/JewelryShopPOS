@@ -77,7 +77,8 @@ public class Customer implements Utilities{
 	public int add() {
 		try{
 	 		Connection con = null;
-	 		String query =  "INSERT INTO CUSTOMER VALUES ("+" "+this.getID()+", '"+this.getName()+"', '"+this.getAddress()+"','"+this.getPhonenumber()+"');";
+	 		String pattern = "INSERT INTO Customer (Cus_name,Cus_phone,Cus_addr) VALUES('%s','%s','%s')";
+	 		String query = String.format(pattern, this.name,this.phonenumber,this.address);
 	 		con = Connector.connect();
 	 		Statement s = con.createStatement();
 	 		s.execute(query);
@@ -107,5 +108,22 @@ public class Customer implements Utilities{
 		}
 	}
 	
+	public static int getCusID(String name) {
+		int cus_id = 0;
+		String sql = "SELECT ID from Customer where Cus_Name = '%s'";
+		sql = String.format(sql, name);
+		Connection c = Connector.connect();
+		try {
+			Statement s = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			rs.next();
+			cus_id = rs.getInt(1);
+			c.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return cus_id;
+		
+	}
 }
   

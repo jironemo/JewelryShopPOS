@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="405.0" style="-fx-border-color: black; -fx-border-width: 1pt;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddOrderController">
+   <children>
+      <Pane layoutX="1.0" layoutY="1.0" prefHeight="106.0" prefWidth="403.0" style="-fx-background-color: #336633;">
+         <children>
+            <Label layoutX="113.0" layoutY="32.0" text="အမွာစာရင္းအသစ္" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="20.0" layoutY="280.0" text="ပစၥည္းအမည္">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="174.0" text="လိပ္စာ">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="85.0" layoutY="228.0" prefHeight="12.0" prefWidth="27.0" text="ဖုန္း">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="128.0" text="အမည္">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="cus_name" layoutX="119.0" layoutY="116.0" prefHeight="43.0" prefWidth="268.0">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="cus_addr" layoutX="118.0" layoutY="168.0" prefHeight="43.0" prefWidth="268.0">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="cus_phone" layoutX="118.0" layoutY="222.0" prefHeight="43.0" prefWidth="268.0">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="item_name" layoutX="119.0" layoutY="270.0" prefHeight="43.0" prefWidth="268.0">
+         <font>
+            <Font name="Zawgyi-One" size="18.0" />
+         </font>
+      </JFXTextField>
+      <Pane layoutX="19.0" layoutY="334.0" prefHeight="428.0" prefWidth="371.0" style="-fx-background-color: #b8b8b8;">
+         <children>
+            <Label layoutX="92.0" layoutY="14.0" text="ပစၥည္းအခ်က္အလက္မ်ား">
+               <font>
+                  <Font name="Zawgyi-One" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="60.0" prefHeight="31.0" prefWidth="67.0" text="အေလးခ်ိန္">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="weight_kyat" layoutX="97.0" layoutY="64.0" prefHeight="25.0" prefWidth="38.0" />
+            <Label layoutX="138.0" layoutY="66.0" text="က်ပ္">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="weight_pel" layoutX="164.0" layoutY="64.0" prefHeight="25.0" prefWidth="38.0" />
+            <Label layoutX="214.0" layoutY="66.0" text="ပဲ">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="weight_yway" layoutX="235.0" layoutY="64.0" prefHeight="25.0" prefWidth="38.0" />
+            <Label layoutX="280.0" layoutY="65.0" text="ေ႐ြး">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="281.0" layoutY="127.0" text="ေ႐ြး">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="depre_yway" layoutX="236.0" layoutY="126.0" prefHeight="25.0" prefWidth="38.0" />
+            <Label layoutX="215.0" layoutY="128.0" text="ပဲ">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="depre_pel" layoutX="165.0" layoutY="126.0" prefHeight="25.0" prefWidth="38.0" />
+            <Label layoutX="139.0" layoutY="128.0" text="က်ပ္">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="depre_kyat" layoutX="98.0" layoutY="126.0" prefHeight="25.0" prefWidth="38.0" />
+            <Label alignment="CENTER" layoutX="11.0" layoutY="112.0" prefHeight="54.0" prefWidth="77.0" text="အေလ်ာ့တြက္&#10;(ခန့္မွန္း)" textAlignment="CENTER">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="184.0" prefHeight="31.0" prefWidth="67.0" text="ေ႐ြးရန္ရက္">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dp_due" layoutX="98.0" layoutY="187.0" prefHeight="25.0" prefWidth="204.0" style="-fx-background-color: white;" />
+            <Label alignment="CENTER" layoutX="13.0" layoutY="223.0" prefHeight="54.0" prefWidth="77.0" text="ေစ်းနူန္း&#10;(ခန့္မွန္း)" textAlignment="CENTER">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="item_price_est" layoutX="97.0" layoutY="238.0" prefHeight="25.0" prefWidth="204.0" />
+            <TextArea fx:id="description" layoutX="99.0" layoutY="274.0" prefHeight="141.0" prefWidth="204.0" />
+            <Label alignment="CENTER" layoutX="13.0" layoutY="277.0" prefHeight="54.0" prefWidth="77.0" text="ပံုသ႑ာန္&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Zawgyi-One" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXButton fx:id="exit" layoutX="324.0" layoutY="767.0" onAction="#exit" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="228.0" layoutY="767.0" onAction="#addData" prefHeight="43.0" prefWidth="77.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -39,9 +39,8 @@ public interface Utilities {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainMenu.class.getResource(formname));
 		Scene scene = new Scene(loader.load());
-
 		Stage s = new Stage(c);
-		s.initModality(Modality.WINDOW_MODAL);
+		s.initModality(Modality.APPLICATION_MODAL);
 		s.setScene(scene);
 		s.centerOnScreen();
 		s.setResizable(false);

@@ -6,9 +6,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="338.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddStockController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="340.0" style="-fx-border-color: black; -fx-border-width: 1pt;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddStockController">
    <children>
-      <Pane prefHeight="97.0" prefWidth="412.0" style="-fx-background-color: #336633;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane layoutX="1.0" layoutY="1.0" prefHeight="97.0" prefWidth="338.0" style="-fx-background-color: #336633;">
          <children>
             <Label layoutX="106.0" layoutY="28.0" text="ပစၥည္းအသစ္" textFill="WHITE">
                <font>
@@ -57,7 +57,7 @@
             <Font name="Zawgyi-One" size="12.0" />
          </font>
       </Label>
-      <JFXButton layoutX="112.0" layoutY="456.0" prefHeight="42.0"  onAction = "#addStock" prefWidth="99.0" style="-fx-background-color: #336633;" text="OK" textFill="WHITE">
+      <JFXButton layoutX="112.0" layoutY="456.0" onAction="#addStock" prefHeight="42.0" prefWidth="99.0" style="-fx-background-color: #336633;" text="OK" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

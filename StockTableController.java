@@ -11,16 +11,13 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+
 import javafx.stage.StageStyle;
 
 public class StockTableController {
@@ -37,11 +34,10 @@ public class StockTableController {
 	
 	@FXML
 	JFXTextField item_id,item_name,item_weight,item_depreciation;
-	
+
 	Item k = null;
 	public void initialize() {
 		getOnlyUnsold();
-	
 	}
 	
 	public void getAllData() {
@@ -101,6 +97,7 @@ public class StockTableController {
 		ResultSet rs = s.executeQuery(sql);
 		while(rs.next()) {
 			list.add(new Item(rs.getString("ID"),rs.getString("Name"),new Weight(rs.getString("Weight")),new Weight(rs.getString("Depreciation")),rs.getString("stock_status")));
+			c.close();
 		}
 		stocks.setItems(list);
 	}
@@ -144,6 +141,7 @@ public class StockTableController {
 				s.execute(sql);
 				toggleAction();
 				refreshBoxes();
+				con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();
@@ -157,7 +155,7 @@ public class StockTableController {
 	
 	public void callAddStock() {
 		try {
-			Utilities.openForm("AddStock.fxml", StageStyle.UNDECORATED);
+			Utilities.openForm("AddStock.fxml",StageStyle.UNDECORATED);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

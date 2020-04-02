@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1122.0" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
+<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1122.0" style="-fx-border: black; -fx-border-width: 2pt;" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="743.0" prefWidth="1122.0">
          <children>
@@ -28,7 +28,7 @@
                   <Font name="Zawgyi-One" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="20.0" layoutY="433.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="120.0" prefWidth="240.0" style="-fx-background-color: #335533;" text="Add New Order&#10;အမွာသစ္&#10;" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton layoutX="20.0" layoutY="433.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#callAddOrder" prefHeight="120.0" prefWidth="240.0" style="-fx-background-color: #335533;" text="Add New Order&#10;အမွာသစ္&#10;" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Zawgyi-One" size="16.0" />
                </font>

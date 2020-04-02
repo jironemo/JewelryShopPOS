@@ -8,8 +8,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="338.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddSaleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="340.0" style="-fx-border-color: black; -fx-border-width: 1pt;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddSaleController">
    <children>
+      <Pane layoutX="1.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="338.0" style="-fx-background-color: #336633;">
+         <children>
+            <Label layoutX="55.0" layoutY="33.0" text="အေရာင္းစာရင္းအသစ္" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Label layoutX="20.0" layoutY="280.0" text="ပစၥည္းအမွတ္">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
@@ -28,11 +37,6 @@
       <Label layoutX="60.0" layoutY="128.0" text="အမည္">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="62.0" layoutY="33.0" text="အေရာင္းစာရင္းအသစ္" textFill="WHITE">
-         <font>
-            <Font name="Zawgyi-One" size="24.0" />
          </font>
       </Label>
       <JFXTextField fx:id="cus_name" layoutX="119.0" layoutY="116.0">
@@ -69,14 +73,5 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <Pane prefHeight="106.0" prefWidth="338.0" style="-fx-background-color: #336633;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Label layoutX="62.0" layoutY="32.0" text="အေရာင္းစာရင္းအသစ္" textFill="WHITE">
-               <font>
-                  <Font name="Zawgyi-One" size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
    </children>
 </AnchorPane>

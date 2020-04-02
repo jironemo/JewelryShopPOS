@@ -185,5 +185,21 @@ public class Item implements Utilities{
 		}
 			return(k);
 	}
+		public static String getItemFromName(String name) {
+			String sql =String.format( "SELECT ID from Stock WHERE Name = '%s';",name);
+			String id = null; 
+			try {
+				Connection con = Connector.connect();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql);
+				rs.next();
+				id = rs.getString(1);
+
+				con.close();
+			}catch(SQLException se) {
+				se.printStackTrace();
+			}
+			return id;
+		}
 		
 }
