@@ -11,10 +11,10 @@ public class MainMenu extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainMenu.class.getResource("Dashboard.fxml"));
-		Scene scene = new Scene(loader.load());
+		loader.setLocation(MainMenu.class.getResource("/fxmls/Dashboard.fxml"));
+		Scene scene = new Scene(loader.load()); 
 		primaryStage.centerOnScreen();
-		primaryStage.setScene(scene); 
+		primaryStage.setScene(scene);
 		primaryStage.setTitle("Main Menu");
 		primaryStage.setResizable(false);
 		primaryStage.show();

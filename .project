@@ -14,4 +14,10 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>GOLDVAL</name>
+			<value>file:/E:/eclipse-workspace/JewelryShopPOS/goldval.txt</value>
+		</variable>
+	</variableList>
 </projectDescription>
