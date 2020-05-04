@@ -113,7 +113,7 @@ public class StockTableController {
 
 		if (stocks.getSelectionModel().getSelectedItem() != null) {
 			k = new Item(stocks.getSelectionModel().getSelectedItem());
-			if (k.stock.equals("sold")) {
+			if (k.stock.equals("sold") || k.stock.equals("ordered")) {
 				refreshBoxes();
 				delete_btn.setDisable(true);
 				update_btn.setDisable(true);
@@ -130,8 +130,6 @@ public class StockTableController {
 	}
 
 	public void updateClick() {
-		// update Stock set Name = "လက္စြပ္", Weight = "1,1,1", Depreciation = "1,1,1"
-		// where id = 1;
 		String sql = "UPDATE Stock set Name = '" + item_name.getText() + "', Weight = '" + item_weight.getText()
 				+ "', Depreciation = '" + item_depreciation.getText() + "' where id = " + item_id.getText() + "";
 		Alert alert = new Alert(AlertType.CONFIRMATION);

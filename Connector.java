@@ -16,8 +16,7 @@ public class Connector {
 			
 
 
-			String url = "jdbc:sqlite::resource:textfiles/shop.db";
-			System.out.println(url);
+			String url = "jdbc:sqlite:textfiles/shop.db";
 			// create a connection to the database
 			conn = DriverManager.getConnection(url, new Properties());
 			

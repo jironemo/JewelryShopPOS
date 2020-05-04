@@ -1,7 +1,3 @@
-
-
-
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,19 +5,15 @@ import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import java.util.Date;
 import java.util.Optional;
-
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.CharacterRun;
 import org.apache.poi.hwpf.usermodel.Paragraph;
 import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.hwpf.usermodel.Section;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -110,7 +102,9 @@ public class AddSaleController {
 					"$itemDepreciation" };
 			String[] replaceText = { new Date().toString(), cus_name.getText(), cus_phone.getText(), cus_addr.getText(),
 					item_id.getText(), Item.get("Name", id), Item.get("Weight", id), Item.get("Depreciation", id) };
-			FileInputStream fis = new FileInputStream("ReceiptTemplate.doc");
+			ClassLoader CLDR = this.getClass().getClassLoader();
+			
+			FileInputStream fis = new FileInputStream((CLDR.getResource("textfiles/ReceiptTemplate.doc").getFile()));
 			HWPFDocument in = new HWPFDocument(fis);
 			HWPFDocument out = replaceText(in, findText, replaceText);
 			FileOutputStream fos = new FileOutputStream(System.getProperty("user.home") + "//Desktop//Receipt.doc");
