@@ -43,7 +43,7 @@
                   <Font name="Zawgyi-One" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="367.0" layoutY="563.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="120.0" prefWidth="140.0" style="-fx-background-color: #335533;" text="Orders&#10;လက္႐ွိအမွာမ်ား" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton layoutX="367.0" layoutY="563.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="120.0" prefWidth="140.0" style="-fx-background-color: #335533;" text="Orders&#10;လက္႐ွိအမွာမ်ား" onAction = "#callOrdersTable" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Zawgyi-One" size="16.0" />
                </font>

@@ -109,6 +109,8 @@ public class AddSaleController {
 			HWPFDocument out = replaceText(in, findText, replaceText);
 			FileOutputStream fos = new FileOutputStream(System.getProperty("user.home") + "//Desktop//Receipt.doc");
 			out.write(fos);
+			out.close();
+			fis.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

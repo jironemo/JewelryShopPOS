@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OrdersTableController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="768.0" prefWidth="1024.0">
+         <children>
+            <Pane maxWidth="1.7976931348623157E308" style="-fx-background-color: #336633;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="458.0" layoutY="47.0" prefHeight="41.0" prefWidth="213.0" text="စိန္ေ႐ႊရတနာ အေရာင္းဆိုင္" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Zawgyi-One" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="470.0" prefHeight="52.0" prefWidth="188.0" text="ေအာင္ခ်မ္းသာ" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Zawgyi-One" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
