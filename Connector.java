@@ -1,6 +1,5 @@
 
 import java.util.*;
-import java.net.URL;
 import java.sql.*;
 
 /**
@@ -13,10 +12,7 @@ public class Connector {
 		try {
 			Class.forName(org.sqlite.JDBC.class.getCanonicalName());
 			// db parameters
-			
-
-
-			String url = "jdbc:sqlite:textfiles/shop.db";
+			String url = "jdbc:sqlite::resource:textfiles/shop.db";
 			// create a connection to the database
 			conn = DriverManager.getConnection(url, new Properties());
 			
@@ -29,11 +25,6 @@ public class Connector {
 	/**
 	 * @param args the command line arguments
 	 */
-	public URL url() {
 
-		
-		URL u = getClass().getResource("/shop.db");
-		return u;
-	}
 
 }

@@ -5,7 +5,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry including=".classpath|.gitignore|.project|.settings/|AddOrderController.java|AddSaleController.java|AddStockController.java|Connector.java|Customer.java|DashboardController.java|Item.java|MMRTEXT.TTF|MainMenu.java|OrderInfo.java|README.md|ReceiptTemplate.doc|Sale.java|SaleData.java|SalesTableController.java|SparseBitSet-1.2.jar|StockTableController.java|Utilities.java|Weight.java|activation-1.1.1.jar|bin/|commons-codec-1.13.jar|commons-collections4-4.4.jar|commons-compress-1.19.jar|commons-logging-1.2.jar|commons-math3-3.6.1.jar|fxmls/|jaxb-api-2.3.1.jar|jaxb-core-2.3.0.1.jar|jaxb-impl-2.3.2.jar|jfoenix-8.0.8.jar|jfxswt.jar|junit-4.12.jar|log4j-1.2.17.jar|poi-4.1.2.jar|poi-excelant-4.1.2.jar|poi-ooxml-4.1.2.jar|poi-ooxml-schemas-4.1.2.jar|poi-scratchpad-4.1.2.jar|resource|shop.db|sqlite-jdbc-3.30.1.jar|textfiles/" kind="src" path=""/>
+	<classpathentry kind="src" path=""/>
 	<classpathentry exported="true" kind="lib" path="sqlite-jdbc-3.30.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="jfoenix-8.0.8.jar"/>
 	<classpathentry exported="true" kind="lib" path="jfxswt.jar"/>

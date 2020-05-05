@@ -53,8 +53,9 @@ public interface Utilities {
 	public static String getgold() {
 		int k = 0;
 		try {
-			String sql = "select value from goldval where id = 1";
-			Connection con = new Connector().connect();
+			String sql = "select goldval from Gold where id = 1";
+			Connection con =  null;
+			con = new Connector().connect();
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			rs.next();
