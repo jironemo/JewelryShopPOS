@@ -2,6 +2,7 @@
 
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -46,6 +47,7 @@ public class AddOrderController {
 			c.add();
 			addOrderedItem(i);
 			addOrder(c, i);
+			exit();
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("ERROR");
@@ -57,13 +59,21 @@ public class AddOrderController {
 	}
 
 	public void addOrder(Customer c, Item i) {
-		String pattern = "INSERT Into [Order] (Customer_ID,Item_ID,DateOfOrder,DueDate,item_description) values(%d,'%s',DATE(),'%tF','%s')";
+		String pattern = "INSERT Into [Order] (Customer_ID,Item_ID,DateOfOrder,DueDate,item_description) values (%d,'%s',DATE(),'%tF','%s')";
 		String sql = String.format(pattern, c.getCusID(cus_name.getText()), Item.getItemFromName(item_name.getText()),
 				dp_due.getValue(), description.getText());
 		try {
 			Connection con = new Connector().connect();
 			Statement s = con.createStatement();
 			s.execute(sql);
+			System.out.println("Success");
+			
+			String get  = "SELECT * FROM [Order]";
+			Statement s1 = con.createStatement();
+			ResultSet rs = s1.executeQuery(get);
+			while(rs.next()) {
+				System.out.println(rs.getInt(1));
+			}
 			con.close();
 		} catch (SQLException se) {
 			se.printStackTrace();

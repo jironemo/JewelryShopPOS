@@ -12,10 +12,9 @@ public class Connector {
 		try {
 			Class.forName(org.sqlite.JDBC.class.getCanonicalName());
 			// db parameters
-			String url = "jdbc:sqlite::resource:textfiles/shop.db";
+			String url = "jdbc:sqlite::resource:" + Connector.class.getClassLoader().getResource("textfiles/shop.db").toString();
 			// create a connection to the database
 			conn = DriverManager.getConnection(url, new Properties());
-			
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 		}

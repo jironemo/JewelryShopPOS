@@ -95,7 +95,7 @@
                   <Font name="Zawgyi-One" size="14.0" />
                </font>
             </Label>
-            <TextArea fx:id="text_customeraddr" layoutX="776.0" layoutY="499.0" prefHeight="200.0" prefWidth="200.0">
+            <TextArea fx:id="text_customeraddr" layoutX="776.0" layoutY="499.0" prefHeight="200.0" prefWidth="200.0" wrapText="true">
                <font>
                   <Font name="Zawgyi-One" size="12.0" />
                </font>

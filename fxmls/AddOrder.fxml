@@ -122,7 +122,10 @@
                </font>
             </Label>
             <TextField fx:id="item_price_est" layoutX="97.0" layoutY="238.0" prefHeight="25.0" prefWidth="204.0" />
-            <TextArea fx:id="description" layoutX="99.0" layoutY="274.0" prefHeight="141.0" prefWidth="204.0" />
+            <TextArea fx:id="description" layoutX="99.0" layoutY="274.0" prefHeight="141.0" prefWidth="204.0" wrapText="true">
+               <font>
+                  <Font name="Zawgyi-One" size="13.0" />
+               </font></TextArea>
             <Label alignment="CENTER" layoutX="13.0" layoutY="277.0" prefHeight="54.0" prefWidth="77.0" text="ပံုသ႑ာန္&#10;" textAlignment="CENTER">
                <font>
                   <Font name="Zawgyi-One" size="14.0" />

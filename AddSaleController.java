@@ -1,6 +1,7 @@
-import java.io.FileInputStream;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -102,15 +103,13 @@ public class AddSaleController {
 					"$itemDepreciation" };
 			String[] replaceText = { new Date().toString(), cus_name.getText(), cus_phone.getText(), cus_addr.getText(),
 					item_id.getText(), Item.get("Name", id), Item.get("Weight", id), Item.get("Depreciation", id) };
-			ClassLoader CLDR = this.getClass().getClassLoader();
-			
-			FileInputStream fis = new FileInputStream((CLDR.getResource("textfiles/ReceiptTemplate.doc").getFile()));
-			HWPFDocument in = new HWPFDocument(fis);
+			InputStream ins = getClass().getResourceAsStream("/textfiles/ReceiptTemplate.doc"); 
+			HWPFDocument in = new HWPFDocument(ins);
 			HWPFDocument out = replaceText(in, findText, replaceText);
 			FileOutputStream fos = new FileOutputStream(System.getProperty("user.home") + "//Desktop//Receipt.doc");
 			out.write(fos);
 			out.close();
-			fis.close();
+			ins.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

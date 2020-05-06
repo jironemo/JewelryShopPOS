@@ -71,7 +71,7 @@ public interface Utilities {
 	}
 
 	public static void setGold(String text) {
-		String sql = "UPDATE  goldval set value = " + text + " where id = 1";
+		String sql = "UPDATE  Gold set goldval = " + text + " where id = 1";
 		try {
 			Connection con = new Connector().connect();
 			Statement s = con.createStatement();
