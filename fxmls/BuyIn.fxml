@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="376.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BuyInController">
+   <children>
+      <Pane prefHeight="85.0" prefWidth="376.0" style="-fx-background-color: #336633;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="125.0" layoutY="22.0" text="အ၀ယ္စာရင္း" textFill="WHITE">
+               <font>
+                  <Font name="Zawgyi-One" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="45.0" layoutY="133.0" text="ေရာင္းသူအမည္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="79.0" layoutY="196.0" text="ဖုန္းနံပါတ္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="258.0" text="ေနရပ္လိပ္စာ">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="313.0" text="ပစၥည္းအခ်က္အလက္မ်ား" underline="true">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="365.0" text="အမည္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="422.0" text="အေလးခ်ိန္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="481.0" text="ေစ်းနွဳန္း">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="cus_name" layoutX="172.0" layoutY="133.0" prefHeight="10.0" prefWidth="150.0" />
+      <JFXTextField fx:id="cus_phone" layoutX="172.0" layoutY="196.0" prefHeight="10.0" prefWidth="150.0" />
+      <JFXTextField fx:id="cus_addr" layoutX="172.0" layoutY="258.0" prefHeight="10.0" prefWidth="150.0" />
+      <JFXTextField fx:id="item_name" layoutX="172.0" layoutY="365.0" prefHeight="10.0" prefWidth="150.0" />
+      <JFXTextField fx:id="weight_kyat" layoutX="168.0" layoutY="422.0" prefHeight="25.0" prefWidth="25.0" />
+      <JFXTextField fx:id="weight_pel" layoutX="223.0" layoutY="422.0" prefHeight="25.0" prefWidth="25.0" />
+      <JFXTextField fx:id="weight_yway" layoutX="274.0" layoutY="422.0" prefHeight="25.0" prefWidth="25.0" />
+      <Label layoutX="193.0" layoutY="423.0" text="က်ပ္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="256.0" layoutY="423.0" text="ပဲ">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="305.0" layoutY="423.0" text="ေ႐ြး">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="item_price" layoutX="172.0" layoutY="481.0" prefHeight="10.0" prefWidth="150.0" />
+      <JFXButton fx:id="confirm" onAction = "#addBuyIn" layoutX="252.0" layoutY="560.0" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="exit" onAction = "#exit" layoutX="172.0" layoutY="560.0" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #ff0000;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

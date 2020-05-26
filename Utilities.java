@@ -36,9 +36,7 @@ public interface Utilities {
 	public int updateData();
 
 	public static void openForm(String formname, StageStyle c) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-
-		loader.setLocation(MainMenu.class.getResource("/fxmls/"+formname));
+		FXMLLoader loader = new FXMLLoader(MainMenu.class.getResource("/fxmls/"+formname));
 		Scene scene = new Scene(loader.load());
 		Stage s = new Stage(c);
 		s.initModality(Modality.APPLICATION_MODAL); 
@@ -66,7 +64,7 @@ public interface Utilities {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return Integer.toString(k);
+		return Integer.toString(k); 
 
 	}
 

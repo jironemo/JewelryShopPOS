@@ -17,7 +17,7 @@ public class AddStockController {
 	@FXML
 	JFXButton exit;
 	@FXML
-	JFXTextField item_name, item_weight, item_depreciation;
+	JFXTextField item_name, item_weight, item_price;
 
 	public void exit() {
 		((Stage) exit.getScene().getWindow()).close();
@@ -26,8 +26,8 @@ public class AddStockController {
 	public void addStock() {
 		if (someFieldsNULL() == false) {
 			String sql = String.format(
-					"INSERT INTO Stock (Name,Weight,Depreciation,stock_status) values ('%s','%s','%s','stock');",
-					item_name.getText(), item_weight.getText(), item_depreciation.getText());
+					"INSERT INTO Stock (Name,Weight,Price,stock_status) values ('%s','%s','%s','stock');",
+					item_name.getText(), item_weight.getText(), item_price.getText());
 			Connection c =  new Connector().connect();
 			Statement s;
 			try {
@@ -58,7 +58,7 @@ public class AddStockController {
 		if (item_weight.getText() == null || item_weight.getText().trim().equals("")) {
 			a = true;
 		}
-		if (item_depreciation.getText() == null || item_depreciation.getText().trim().equals("")) {
+		if (item_price.getText() == null || item_price.getText().trim().equals("")) {
 			a = true;
 		}
 		return a;

@@ -25,7 +25,7 @@
                   </Label>
                </children>
             </Pane>
-            <TableView fx:id="order_table" layoutX="3.0" layoutY="98.0" onMouseClicked="#ShowSelectedData" prefHeight="644.0" prefWidth="736.0" style="-fx-font-family: Zawgyi-One;">
+            <TableView fx:id="order_table" layoutX="3.0" layoutY="98.0" onMouseClicked="#ShowSelectedData" prefHeight="644.0" prefWidth="706.0" style="-fx-font-family: Zawgyi-One;">
               <columns>
                 <TableColumn fx:id="order_id_col" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="cus_name_col" prefWidth="75.0" text="Customer Name" />
@@ -46,22 +46,28 @@
             <JFXTextField fx:id="item_name_txt" layoutX="828.0" layoutY="141.0" prefHeight="41.0" prefWidth="162.0" style="-fx-font-family: Zawgyi-One;" />
             <JFXTextField fx:id="item_weight_txt" layoutX="828.0" layoutY="199.0" prefHeight="41.0" prefWidth="163.0" style="-fx-font-family: Zawgyi-One;" />
             <JFXTextField fx:id="item_depre_txt" layoutX="828.0" layoutY="265.0" prefHeight="41.0" prefWidth="164.0" style="-fx-font-family: Zawgyi-One;" />
-            <TextArea fx:id="item_description_txt" editable="false" layoutX="760.0" layoutY="356.0" prefHeight="164.0" prefWidth="230.0" style="-fx-font-family: Zawgyi-One;" wrapText="true" />
+            <JFXTextField fx:id="item_price_txt" layoutX="828.0" layoutY="322.0" prefHeight="41.0" prefWidth="164.0" style="-fx-font-family: Zawgyi-One;" />
+            <TextArea fx:id="item_description_txt" editable="false" layoutX="760.0" layoutY="404.0" prefHeight="116.0" prefWidth="230.0" style="-fx-font-family: Zawgyi-One;" wrapText="true" />
             <JFXTextField fx:id="cus_name_txt" layoutX="828.0" layoutY="520.0" prefHeight="41.0" prefWidth="163.0" style="-fx-font-family: Zawgyi-One;" />
             <JFXTextField fx:id="cus_phone_txt" layoutX="828.0" layoutY="578.0" prefHeight="41.0" prefWidth="163.0" style="-fx-font-family: Zawgyi-One;" />
             <JFXTextField fx:id="dateOfOrder_txt" layoutX="832.0" layoutY="639.0" prefHeight="41.0" prefWidth="163.0" style="-fx-font-family: Zawgyi-One;" />
             <JFXTextField fx:id="dueDate_txt" layoutX="830.0" layoutY="701.0" prefHeight="41.0" prefWidth="163.0" style="-fx-font-family: Zawgyi-One;" />
+            <Label layoutX="744.0" layoutY="331.0" style="-fx-font-family: Zawgyi-One;" text="ခန္႕မွန္းေစ်းႏွဳန္း">
+               <font>
+                  <Font name="Zawgyi-One" size="12.0" />
+               </font>
+            </Label>
             <Label layoutX="766.0" layoutY="211.0" style="-fx-font-family: Zawgyi-One;" text="အေလးခ်ိန္">
                <font>
                   <Font name="Zawgyi-One" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="759.0" layoutY="280.0" style="-fx-font-family: Zawgyi-One;" text="အေလ်ာ့တြက္">
+            <Label layoutX="720.0" layoutY="285.0" style="-fx-font-family: Zawgyi-One;" text="ခန္႔မွန္းအေလ်ာ့တြက္">
                <font>
                   <Font name="Zawgyi-One" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="827.0" layoutY="325.0" style="-fx-font-family: Zawgyi-One;" text="ပစၥည္းပံုသ႑ာန္" underline="true">
+            <Label layoutX="823.0" layoutY="363.0" style="-fx-font-family: Zawgyi-One;" text="ပစၥည္းပံုသ႑ာန္" underline="true">
                <font>
                   <Font name="Zawgyi-One" size="12.0" />
                </font>

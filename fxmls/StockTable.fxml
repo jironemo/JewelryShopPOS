@@ -45,12 +45,12 @@
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="item_depreciation" focusColor="#336633" layoutX="806.0" layoutY="610.0" prefHeight="31.0" prefWidth="175.0">
+            <JFXTextField fx:id="item_price" focusColor="#336633" layoutX="806.0" layoutY="610.0" prefHeight="31.0" prefWidth="175.0">
                <font>
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
             </JFXTextField>
-            <Label layoutX="687.0" layoutY="622.0" text="အေလ်ာ့တြက္">
+            <Label layoutX="687.0" layoutY="622.0" text="ေစ်းနွုန္း">
                <font>
                   <Font name="Zawgyi-One" size="18.0" />
                </font>
@@ -78,7 +78,7 @@
                   <TableColumn fx:id="id" editable="false" prefWidth="115.0" style="-fx-font-family: Zawgyi-One;" text="စဥ္" />
                   <TableColumn fx:id="name" editable="false" prefWidth="234.0" style="-fx-font-family: Zawgyi-One;" text="ပစၥည္းအမည္" />
                   <TableColumn fx:id="weight" editable="false" prefWidth="144.0" style="-fx-font-family: Zawgyi-One;" text="အေလးခ်ိန္" />
-                  <TableColumn fx:id="depreciation" editable="false" prefWidth="135.0" style="-fx-font-family: Zawgyi-One;" text="အေလ်ာ့တြက္" />
+                  <TableColumn fx:id="price" editable="false" prefWidth="135.0" style="-fx-font-family: Zawgyi-One;" text="အေလ်ာ့တြက္" />
                   <TableColumn fx:id="stock" editable="false" prefWidth="122.0" style="-fx-font-family: Zawgyi-One;" text="ပစၥည္း႐ွိမရွိ" />
                </columns>
             </TableView>

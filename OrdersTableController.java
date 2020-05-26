@@ -11,7 +11,7 @@ public class OrdersTableController{
 	@FXML
 	TableColumn<OrderInfo, String> order_id_col,cus_name_col,cus_phone_col,item_name_col,item_description_col,dueDate_col;
 	@FXML
-	JFXTextField item_name_txt,item_weight_txt,item_depre_txt,cus_name_txt,cus_phone_txt,dateOfOrder_txt,dueDate_txt;
+	JFXTextField item_name_txt,item_price_txt,item_weight_txt,item_depre_txt,cus_name_txt,cus_phone_txt,dateOfOrder_txt,dueDate_txt;
 	@FXML
 	TextArea item_description_txt;
 	public void initialize() {
@@ -63,7 +63,7 @@ public class OrdersTableController{
 			item_id = r.getString("item_id");
 			dateOfOrder = r.getString("DateOfOrder");
 				if(f  != null) {
-					String sql_for_item = "SELECT weight,depreciation from Stock where id =" + item_id +";";
+					String sql_for_item = "SELECT weight,depreciation,price from Stock Inner Join [Order] where Stock.id =" + item_id +";";
 					ResultSet rs = s.executeQuery(sql_for_item);
 					rs.next();
 					item_name_txt.setText(f.item_name);
@@ -73,6 +73,7 @@ public class OrdersTableController{
 					cus_phone_txt.setText(f.cus_phone);
 					dateOfOrder_txt.setText(dateOfOrder);
 					item_description_txt.setText(f.item_description);
+					item_price_txt.setText(rs.getString("price"));
 					dueDate_txt.setText(f.duedate);
 				}		
 				c.close();

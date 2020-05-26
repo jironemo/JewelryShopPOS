@@ -3,13 +3,22 @@
 public class OrderInfo {
 	int order_id;
 	String cus_name, cus_phone, item_name, item_description,duedate;
+	Weight depreciation;
 
 	public int getOrder_id() {
 		return order_id;
 	}
 
 	public void setOrder_id(int order_id) {
-		this.order_id = order_id;
+		this.order_id = order_id; 
+	}
+
+	public Weight getDepreciation() {
+		return depreciation;
+	}
+
+	public void setDepreciation(Weight depreciation) {
+		this.depreciation = depreciation;
 	}
 
 	public String getCus_name() {

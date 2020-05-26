@@ -23,7 +23,7 @@ public class AddOrderController {
 	@FXML
 	JFXTextField cus_name, cus_addr, cus_phone, item_name;
 	@FXML
-	TextField weight_kyat, weight_pel, weight_yway, depre_kyat, depre_pel, depre_yway;
+	TextField weight_kyat, weight_pel, weight_yway, depre_kyat, depre_pel, depre_yway,item_price_est;
 	@FXML
 	TextArea description;
 	@FXML
@@ -42,11 +42,11 @@ public class AddOrderController {
 			c.setAddress(cus_addr.getText());
 			i.name = item_name.getText();
 			i.weight = new Weight(weight_kyat.getText() + "," + weight_pel.getText() + "," + weight_pel.getText());
-			i.depreciation = new Weight(depre_kyat.getText() + "," + depre_pel.getText() + "," + depre_pel.getText());
+			i.price = Long.parseLong(item_price_est.getText());
 			i.stock = "ordered";
 			c.add();
 			addOrderedItem(i);
-			addOrder(c, i);
+			addOrder(c);
 			exit();
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -58,10 +58,10 @@ public class AddOrderController {
 		}
 	}
 
-	public void addOrder(Customer c, Item i) {
-		String pattern = "INSERT Into [Order] (Customer_ID,Item_ID,DateOfOrder,DueDate,item_description) values (%d,'%s',DATE(),'%tF','%s')";
+	public void addOrder(Customer c) {
+		String pattern = "INSERT Into [Order] (Customer_ID,Item_ID,DateOfOrder,DueDate,item_description,depreciation) values (%d,'%s',DATE(),'%tF','%s','%s')";
 		String sql = String.format(pattern, c.getCusID(cus_name.getText()), Item.getItemFromName(item_name.getText()),
-				dp_due.getValue(), description.getText());
+				dp_due.getValue(), description.getText(),new Weight(depre_kyat.getText()+","+depre_pel.getText()+","+depre_yway.getText()).getString());
 		try {
 			Connection con = new Connector().connect();
 			Statement s = con.createStatement();
@@ -83,11 +83,11 @@ public class AddOrderController {
 
 	public void addOrderedItem(Item i) {
 		String sql = String.format(
-				"INSERT INTO Stock (Name,Weight,Depreciation,stock_status) values ('%s','%s','%s','%s')", i.name,
-				i.weight.getString(), i.depreciation.getString(), i.stock);
+				"INSERT INTO Stock (Name,Weight,Price,stock_status) values ('%s','%s','%s','%s')", i.name,
+				i.weight.getString(), i.getPrice(), i.stock);
 		Connection con =  new Connector().connect();
 		try {
-			Statement s = con.createStatement();
+			Statement s = con.createStatement(); 
 			s.execute(sql);
 			con.close();
 		} catch (SQLException e) {

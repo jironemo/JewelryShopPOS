@@ -25,3 +25,5 @@
 /OrderInfo.class
 /bin/
 /OrdersTableController.class
+/AddPawnDealController.class
+/BuyInController.class

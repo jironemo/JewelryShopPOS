@@ -6,58 +6,58 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="824.0" prefWidth="405.0" style="-fx-border-color: black; -fx-border-width: 1pt;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="405.0" style="-fx-border-color: black; -fx-border-width: 1pt;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddOrderController">
    <children>
-      <Pane layoutX="1.0" layoutY="1.0" prefHeight="106.0" prefWidth="403.0" style="-fx-background-color: #336633;">
+      <Pane layoutX="1.0" prefHeight="89.0" prefWidth="403.0" style="-fx-background-color: #336633;">
          <children>
-            <Label layoutX="113.0" layoutY="32.0" text="အမွာစာရင္းအသစ္" textFill="WHITE">
+            <Label layoutX="113.0" layoutY="24.0" text="အမွာစာရင္းအသစ္" textFill="WHITE">
                <font>
                   <Font name="Zawgyi-One" size="24.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Label layoutX="20.0" layoutY="280.0" text="ပစၥည္းအမည္">
+      <Label layoutX="19.0" layoutY="265.0" text="ပစၥည္းအမည္">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="174.0" text="လိပ္စာ">
+      <Label layoutX="59.0" layoutY="159.0" text="လိပ္စာ">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="228.0" prefHeight="12.0" prefWidth="27.0" text="ဖုန္း">
+      <Label layoutX="84.0" layoutY="213.0" prefHeight="12.0" prefWidth="27.0" text="ဖုန္း">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="128.0" text="အမည္">
+      <Label layoutX="59.0" layoutY="113.0" text="အမည္">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="cus_name" layoutX="119.0" layoutY="116.0" prefHeight="43.0" prefWidth="268.0">
+      <JFXTextField fx:id="cus_name" layoutX="118.0" layoutY="101.0" prefHeight="43.0" prefWidth="268.0">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="cus_addr" layoutX="118.0" layoutY="168.0" prefHeight="43.0" prefWidth="268.0">
+      <JFXTextField fx:id="cus_addr" layoutX="117.0" layoutY="153.0" prefHeight="43.0" prefWidth="268.0">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="cus_phone" layoutX="118.0" layoutY="222.0" prefHeight="43.0" prefWidth="268.0">
+      <JFXTextField fx:id="cus_phone" layoutX="117.0" layoutY="207.0" prefHeight="43.0" prefWidth="268.0">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="item_name" layoutX="119.0" layoutY="270.0" prefHeight="43.0" prefWidth="268.0">
+      <JFXTextField fx:id="item_name" layoutX="118.0" layoutY="255.0" prefHeight="43.0" prefWidth="268.0">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </JFXTextField>
-      <Pane layoutX="19.0" layoutY="334.0" prefHeight="428.0" prefWidth="371.0" style="-fx-background-color: #b8b8b8;">
+      <Pane layoutX="17.0" layoutY="308.0" prefHeight="428.0" prefWidth="371.0" style="-fx-background-color: #b8b8b8;">
          <children>
             <Label layoutX="92.0" layoutY="14.0" text="ပစၥည္းအခ်က္အလက္မ်ား">
                <font>
@@ -133,12 +133,12 @@
             </Label>
          </children>
       </Pane>
-      <JFXButton fx:id="exit" layoutX="324.0" layoutY="767.0" onAction="#exit" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+      <JFXButton fx:id="exit" layoutX="320.0" layoutY="741.0" onAction="#exit" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="228.0" layoutY="767.0" onAction="#addData" prefHeight="43.0" prefWidth="77.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
+      <JFXButton layoutX="228.0" layoutY="741.0" onAction="#addData" prefHeight="43.0" prefWidth="77.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

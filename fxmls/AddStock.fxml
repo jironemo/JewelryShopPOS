@@ -27,7 +27,7 @@
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="370.0" text="အေလ်ာ့တြက္">
+      <Label layoutX="55.0" layoutY="370.0" text="ေစ်းနွုန္း">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>
@@ -42,7 +42,7 @@
             <Font name="Zawgyi-One" size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="item_depreciation" layoutX="130.0" layoutY="364.0" prefHeight="43.0" prefWidth="189.0">
+      <JFXTextField fx:id="item_price" layoutX="130.0" layoutY="364.0" prefHeight="43.0" prefWidth="189.0">
          <font>
             <Font name="Zawgyi-One" size="18.0" />
          </font>

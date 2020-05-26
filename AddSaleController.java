@@ -100,9 +100,9 @@ public class AddSaleController {
 		try {
 			int id = Integer.parseInt(item_id.getText());
 			String[] findText = { "$date", "$cusname", "$phone", "$cusaddr", "$itemid", "$itemname", "$itemWeight",
-					"$itemDepreciation" };
+					"$itemPrice" };
 			String[] replaceText = { new Date().toString(), cus_name.getText(), cus_phone.getText(), cus_addr.getText(),
-					item_id.getText(), Item.get("Name", id), Item.get("Weight", id), Item.get("Depreciation", id) };
+					item_id.getText(), Item.get("Name", id), Item.get("Weight", id), Item.get("Price", id) };
 			InputStream ins = getClass().getResourceAsStream("/textfiles/ReceiptTemplate.doc"); 
 			HWPFDocument in = new HWPFDocument(ins);
 			HWPFDocument out = replaceText(in, findText, replaceText);
@@ -149,11 +149,10 @@ public class AddSaleController {
 			ResultSet rs = s.executeQuery(sql);
 
 			if (rs.next() != false) {
-				item_desc.setText("ပစၥည္းအမည္: " + rs.getString(2) + "\n" + "ပစၥည္းအေလးခ်ိန္: "
-						+ new Weight(rs.getString(3)).getKyat() + " က်ပ္ " + new Weight(rs.getString(3)).getPel()
-						+ " ပဲ" + new Weight(rs.getString(3)).getYway() + " ေ႐ြး " + "\n အေလ်ာ့တြက္: "
-						+ new Weight(rs.getString(4)).getKyat() + " က်ပ္ " + new Weight(rs.getString(4)).getPel()
-						+ " ပဲ" + new Weight(rs.getString(4)).getYway() + " ေ႐ြး ");
+				Weight w = new Weight(rs.getString(3));
+				item_desc.setText("ပစၥည္းအမည္: " + rs.getString(2) + "\n ပစၥည္းအေလးခ်ိန္: "
+						+ w.getKyat() + " က်ပ္ " + w.getPel()
+						+ " ပဲ" + w.getYway() + " ေ႐ြး " +"\n ေစ်းႏွဳန္း: " + rs.getLong("Price"));
 			} else {
 				item_desc.setText("ပစၥည္းမရွိပါ ျပန္လည္စစ္ေဆးေပးပါ");
 			}

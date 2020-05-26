@@ -26,7 +26,7 @@ public class StockTableController {
 	@FXML
 	TableView<Item> stocks;
 	@FXML
-	TableColumn<Item, String> id, name, weight, depreciation, stock;
+	TableColumn<Item, String> id, name, weight, price, stock;
 
 	@FXML
 	JFXToggleButton stockToggle;
@@ -34,9 +34,10 @@ public class StockTableController {
 	JFXButton update_btn, delete_btn;
 
 	@FXML
-	JFXTextField item_id, item_name, item_weight, item_depreciation;
+	JFXTextField item_id, item_name, item_weight, item_price;
 
 	Item k = null;
+
 
 	public void initialize() {
 		getOnlyUnsold();
@@ -48,17 +49,16 @@ public class StockTableController {
 		id.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
 		name.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
 		weight.setCellValueFactory(new PropertyValueFactory<Item, String>("weight"));
-		depreciation.setCellValueFactory(new PropertyValueFactory<Item, String>("depreciation"));
+		price.setCellValueFactory(new PropertyValueFactory<Item, String>("price"));
 		stock.setCellValueFactory(new PropertyValueFactory<Item, String>("stock"));
-
-		String sql = "SELECT * FROM Stock";
+		String sql = "SELECT * FROM Stock where stock_status is not 'ordered'";
 		Connection c =  new Connector().connect();
 		try {
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			while (rs.next()) {
 				list.add(new Item(rs.getString("ID"), rs.getString("Name"), new Weight(rs.getString("Weight")),
-						new Weight(rs.getString("Depreciation")), rs.getString("stock_status")));
+						rs.getLong("Price"), rs.getString("stock_status")));
 			}
 			stocks.setItems(list);
 			c.close();
@@ -84,14 +84,14 @@ public class StockTableController {
 	}
 
 	public void getOnlyUnsold() {
+
 		ObservableList<Item> list = FXCollections.observableArrayList();
 
 		id.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
 		name.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
 		weight.setCellValueFactory(new PropertyValueFactory<Item, String>("weight"));
-		depreciation.setCellValueFactory(new PropertyValueFactory<Item, String>("depreciation"));
+		price.setCellValueFactory(new PropertyValueFactory<Item, String>("price"));
 		stock.setCellValueFactory(new PropertyValueFactory<Item, String>("stock"));
-
 		String sql = "SELECT * FROM Stock where stock_status = 'stock';";
 		Connection c =  new Connector().connect();
 		try {
@@ -99,7 +99,7 @@ public class StockTableController {
 			ResultSet rs = s.executeQuery(sql);
 			while (rs.next()) {
 				list.add(new Item(rs.getString("ID"), rs.getString("Name"), new Weight(rs.getString("Weight")),
-						new Weight(rs.getString("Depreciation")), rs.getString("stock_status")));
+						rs.getLong("Price"), rs.getString("stock_status")));
 
 			}
 			c.close();
@@ -121,7 +121,7 @@ public class StockTableController {
 				item_id.setText(k.id);
 				item_name.setText(k.name);
 				item_weight.setText(k.getWeight());
-				item_depreciation.setText(k.getDepreciation());
+				item_price.setText(k.getPrice());
 				delete_btn.setDisable(false);
 				update_btn.setDisable(false);
 			}
@@ -131,7 +131,7 @@ public class StockTableController {
 
 	public void updateClick() {
 		String sql = "UPDATE Stock set Name = '" + item_name.getText() + "', Weight = '" + item_weight.getText()
-				+ "', Depreciation = '" + item_depreciation.getText() + "' where id = " + item_id.getText() + "";
+				+ "', price = '" + item_price.getText() + "' where id = " + item_id.getText() + "";
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.getDialogPane().setStyle("-fx-font-family:Zawgyi-One;");
 		Optional<ButtonType> c = alert.showAndWait();
@@ -188,6 +188,6 @@ public class StockTableController {
 		item_id.setText(null);
 		item_name.setText(null);
 		item_weight.setText(null);
-		item_depreciation.setText(null);
+		item_price.setText(null);
 	}
 }

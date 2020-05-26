@@ -12,7 +12,7 @@ public class Item implements Utilities {
 	String id;
 	String name;
 	Weight weight;
-	Weight depreciation;
+	long price;
 	String stock;
 
 	public String getStock() {
@@ -27,14 +27,14 @@ public class Item implements Utilities {
 		this.id = "";
 		this.name = "";
 		this.weight = new Weight();
-		this.depreciation = new Weight();
+		this.price = 0;
 	}
 
-	public Item(String id, String name, Weight weight, Weight depreciation, String stock) {
+	public Item(String id, String name, Weight weight, long price, String stock) {
 		this.id = id;
 		this.name = name;
 		this.weight = weight;
-		this.depreciation = depreciation;
+		this.price = price;
 		this.stock = stock;
 	}
 
@@ -43,7 +43,7 @@ public class Item implements Utilities {
 		this.id = selectedItem.id;
 		this.name = selectedItem.name;
 		this.weight = selectedItem.weight;
-		this.depreciation = selectedItem.depreciation;
+		this.price = selectedItem.price;
 		this.stock = selectedItem.stock;
 	}
 
@@ -57,7 +57,7 @@ public class Item implements Utilities {
 			this.id = r.getString("ID");
 			this.name = r.getString("Name");
 			this.weight = new Weight(r.getString("Weight"));
-			this.depreciation = new Weight(r.getString("Depreciation"));
+			this.price = r.getLong("Price");
 			this.stock = r.getString("stock_status");
 			c.close();
 		} catch (SQLException e) {
@@ -78,15 +78,15 @@ public class Item implements Utilities {
 		return this.weight.getString();
 	}
 
-	public String getDepreciation() {
-		return this.depreciation.getString();
+	public String getPrice() {
+		return	Long.toString(this.price);
 	}
 
 	public int add() {
 		try {
 			Connection con = null;
 			String query = "INSERT INTO STOCK VALUES (" + " '" + this.getId() + "', '" + this.getName() + "', '"
-					+ this.getWeight() + "','" + this.getDepreciation() + "');";
+					+ this.getWeight() + "','" + this.getPrice() + "');";
 			con =  new Connector().connect();
 			Statement s = con.createStatement();
 			s.execute(query);
@@ -117,7 +117,7 @@ public class Item implements Utilities {
 		try {
 			Connection con = null;
 			String query = "UPDATE Stock SET Name = '" + this.name + "', Weight = '" + this.getWeight()
-					+ "', Depreciation = '" + this.getDepreciation() + "' WHERE ID ='" + this.id + "';";
+					+ "', price = '" + this.getPrice() + "' WHERE ID ='" + this.id + "';";
 			con =  new Connector().connect();
 			Statement s = con.createStatement();
 			s.execute(query);
@@ -146,7 +146,7 @@ public class Item implements Utilities {
 
 	public String toString() {
 		String string;
-		string = this.id + " " + this.name + " " + this.getWeight() + " " + this.getDepreciation();
+		string = this.id + " " + this.name + " " + this.getWeight() + " " + this.getPrice();
 		return string;
 
 	}
@@ -174,7 +174,7 @@ public class Item implements Utilities {
 		boolean k = false;
 		try {
 			stock_data = get("stock_status", Integer.parseInt(this.id));
-			if (stock_data.equals("stock")) {
+			if (stock_data.equals("stock")) { 
 				k = (true);
 			} else
 				k = false;
