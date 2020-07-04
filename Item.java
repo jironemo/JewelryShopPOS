@@ -9,14 +9,14 @@ import java.sql.Statement;
  */
 public class Item implements Utilities {
 
-	String id;
+	int id;
 	String name;
 	Weight weight;
 	long price;
 	String stock;
 
 	public String getStock() {
-		return stock;
+		return stock; 
 	}
 
 	public void setStock_status(String stock) {
@@ -24,14 +24,22 @@ public class Item implements Utilities {
 	}
 
 	public Item() {
-		this.id = "";
+		this.id = 0;
 		this.name = "";
 		this.weight = new Weight();
 		this.price = 0;
 	}
 
-	public Item(String id, String name, Weight weight, long price, String stock) {
+	public Item(int  id, String name, Weight weight, long price, String stock) {
 		this.id = id;
+		this.name = name;
+		this.weight = weight;
+		this.price = price;
+		this.stock = stock;
+	}
+	
+	public Item(String name, Weight weight, long price, String stock) {
+		this.id = getLatestID();
 		this.name = name;
 		this.weight = weight;
 		this.price = price;
@@ -54,7 +62,7 @@ public class Item implements Utilities {
 			Statement s = c.createStatement();
 			ResultSet r = s.executeQuery("SELECT * FROM Stock where id = " + itemID);
 			r.next();
-			this.id = r.getString("ID");
+			this.id = r.getInt("ID");
 			this.name = r.getString("Name");
 			this.weight = new Weight(r.getString("Weight"));
 			this.price = r.getLong("Price");
@@ -67,7 +75,7 @@ public class Item implements Utilities {
 	}
 
 	public String getId() {
-		return (this.id);
+		return (Integer.toString(id));
 	}
 
 	public String getName() {
@@ -86,7 +94,7 @@ public class Item implements Utilities {
 		try {
 			Connection con = null;
 			String query = "INSERT INTO STOCK VALUES (" + " '" + this.getId() + "', '" + this.getName() + "', '"
-					+ this.getWeight() + "','" + this.getPrice() + "');";
+					+ this.getWeight() + "','" + this.getPrice() + "','stock');";
 			con =  new Connector().connect();
 			Statement s = con.createStatement();
 			s.execute(query);
@@ -173,7 +181,7 @@ public class Item implements Utilities {
 		String stock_data = null;
 		boolean k = false;
 		try {
-			stock_data = get("stock_status", Integer.parseInt(this.id));
+			stock_data = get("stock_status", id);
 			if (stock_data.equals("stock")) { 
 				k = (true);
 			} else
@@ -199,6 +207,27 @@ public class Item implements Utilities {
 			se.printStackTrace();
 		}
 		return id;
+	}
+
+
+	public static int getLatestID() {
+		Connection c =  new Connector().connect();
+		int result = 0;
+		String sql = "SELECT MAX(ID) FROM Stock";
+		try {
+			Statement s = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			if (rs.next()) {
+				result = rs.getInt(1) + 1;
+				c.close();
+			} else {
+				result = 0;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

@@ -35,7 +35,7 @@ public class AddSaleController {
 	TextArea item_desc;
 
 	// constructor for no reason what so ever;
-	public AddSaleController() {
+	public AddSaleController() { 
 	}
 
 	// method to work once the scene is initialized
@@ -78,7 +78,7 @@ public class AddSaleController {
 					alert2.setTitle("Successful!");
 					alert2.setContentText("အေရာင္းစာရင္းထည့္သြင္းၿပီးပါၿပီ");
 					alert2.show();
-				}
+				} 
 			} else {
 				alert2.setAlertType(AlertType.ERROR);
 				alert2.setTitle("ပစၥည္းမရွိပါ");

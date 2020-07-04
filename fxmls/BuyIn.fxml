@@ -52,13 +52,31 @@
             <Font name="Zawgyi-One" size="14.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="cus_name" layoutX="172.0" layoutY="133.0" prefHeight="10.0" prefWidth="150.0" />
-      <JFXTextField fx:id="cus_phone" layoutX="172.0" layoutY="196.0" prefHeight="10.0" prefWidth="150.0" />
-      <JFXTextField fx:id="cus_addr" layoutX="172.0" layoutY="258.0" prefHeight="10.0" prefWidth="150.0" />
-      <JFXTextField fx:id="item_name" layoutX="172.0" layoutY="365.0" prefHeight="10.0" prefWidth="150.0" />
-      <JFXTextField fx:id="weight_kyat" layoutX="168.0" layoutY="422.0" prefHeight="25.0" prefWidth="25.0" />
+      <JFXTextField fx:id="cus_name" layoutX="172.0" layoutY="133.0" prefHeight="10.0" prefWidth="150.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="cus_phone" layoutX="172.0" layoutY="196.0" prefHeight="10.0" prefWidth="150.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="cus_addr" layoutX="172.0" layoutY="258.0" prefHeight="10.0" prefWidth="150.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="item_name" layoutX="172.0" layoutY="365.0" prefHeight="10.0" prefWidth="150.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="weight_kyat" layoutX="168.0" layoutY="417.0" prefHeight="25.0" prefWidth="25.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
       <JFXTextField fx:id="weight_pel" layoutX="223.0" layoutY="422.0" prefHeight="25.0" prefWidth="25.0" />
-      <JFXTextField fx:id="weight_yway" layoutX="274.0" layoutY="422.0" prefHeight="25.0" prefWidth="25.0" />
+      <JFXTextField fx:id="weight_yway" layoutX="274.0" layoutY="418.0" prefHeight="25.0" prefWidth="25.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
       <Label layoutX="193.0" layoutY="423.0" text="က်ပ္">
          <font>
             <Font name="Zawgyi-One" size="14.0" />
@@ -75,12 +93,12 @@
          </font>
       </Label>
       <JFXTextField fx:id="item_price" layoutX="172.0" layoutY="481.0" prefHeight="10.0" prefWidth="150.0" />
-      <JFXButton fx:id="confirm" onAction = "#addBuyIn" layoutX="252.0" layoutY="560.0" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
+      <JFXButton fx:id="confirm" layoutX="252.0" layoutY="560.0" onAction="#addBuyIn" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="exit" onAction = "#exit" layoutX="172.0" layoutY="560.0" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #ff0000;" text="Cancel" textFill="WHITE">
+      <JFXButton fx:id="exit" layoutX="172.0" layoutY="560.0" onAction="#exit" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #ff0000;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

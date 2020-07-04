@@ -15,7 +15,7 @@ public class SaleData {
 	}
 
 	public void setSaleData(String a, String b, String c, String d) {
-		this.id = a;
+		this.id = a; 
 		this.itemID = b;
 		this.itemName = c;
 		this.customerName = d;

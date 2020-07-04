@@ -35,7 +35,7 @@ public class StockTableController {
 
 	@FXML
 	JFXTextField item_id, item_name, item_weight, item_price;
-
+ 
 	Item k = null;
 
 
@@ -57,7 +57,7 @@ public class StockTableController {
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			while (rs.next()) {
-				list.add(new Item(rs.getString("ID"), rs.getString("Name"), new Weight(rs.getString("Weight")),
+				list.add(new Item(rs.getInt("ID"), rs.getString("Name"), new Weight(rs.getString("Weight")),
 						rs.getLong("Price"), rs.getString("stock_status")));
 			}
 			stocks.setItems(list);
@@ -98,7 +98,7 @@ public class StockTableController {
 			Statement s = c.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			while (rs.next()) {
-				list.add(new Item(rs.getString("ID"), rs.getString("Name"), new Weight(rs.getString("Weight")),
+				list.add(new Item(rs.getInt("ID"), rs.getString("Name"), new Weight(rs.getString("Weight")),
 						rs.getLong("Price"), rs.getString("stock_status")));
 
 			}
@@ -118,7 +118,7 @@ public class StockTableController {
 				delete_btn.setDisable(true);
 				update_btn.setDisable(true);
 			} else {
-				item_id.setText(k.id);
+				item_id.setText(Integer.toString(k.id));
 				item_name.setText(k.name);
 				item_weight.setText(k.getWeight());
 				item_price.setText(k.getPrice());

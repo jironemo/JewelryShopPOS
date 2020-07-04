@@ -20,7 +20,7 @@ public class AddStockController {
 	JFXTextField item_name, item_weight, item_price;
 
 	public void exit() {
-		((Stage) exit.getScene().getWindow()).close();
+		((Stage) exit.getScene().getWindow()).close(); 
 	}
 
 	public void addStock() {

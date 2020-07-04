@@ -22,22 +22,26 @@ public class BuyInController {
 	
 	
 	public void addBuyIn() {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new Alert(AlertType.CONFIRMATION); 
 		Alert alert2 = new Alert(AlertType.ERROR);
+		int cus_id = 0, item_id =0;
 		alert.getDialogPane().setStyle("-fx-font-family:Zawgyi-One");
 		alert2.getDialogPane().setStyle("-fx-font-family:Zawgyi-One");
 		if(!(someFieldsBlank())) {
 			Connection c = new Connector().connect();
 
-			String add_buyin = "INSERT INTO BuyIn values ('%s','%s','%s');";
-			String add_seller = "INSERT INTO Customer values ('%s','%s','%s');";
-			String add_item = "INSERT INTO Stock values ('%s','%s','%s','%s');";
+			String add_buyin = "INSERT INTO BuyIn (Customer_ID,Item_ID,DateOfBuy)  values ('%s','%s',DATE());";
 			try {
 				Statement s = c.createStatement();
-				
+				Customer cus = new Customer(cus_name.getText(),cus_phone.getText(),cus_addr.getText());
+				cus.add(); 
+				Item i = new Item(item_name.getText(),new Weight(weight_kyat.getText()+","+weight_pel.getText()+","+weight_yway.getText()),Long.parseLong(item_price.getText()),"stock");
+				i.add();
+				cus_id = Customer.getLatestID() -1;
+				item_id = Item.getLatestID() - 1;
+				add_buyin = String.format(add_buyin, cus_id,item_id); 
 				s.execute(add_buyin);
-				s.execute(add_seller);
-				s.execute(add_item);
+				exit();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

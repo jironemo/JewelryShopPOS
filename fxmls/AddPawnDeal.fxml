@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="291.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddPawnDealController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="291.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddPawnDealController">
    <children>
       <Pane prefHeight="93.0" prefWidth="291.0" style="-fx-background-color: #336633;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -32,7 +32,7 @@
             <Font name="Zawgyi-One" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="293.0" text="ပစၥည္း">
+      <Label layoutX="50.0" layoutY="289.0" text="ပစၥည္း">
          <font>
             <Font name="Zawgyi-One" size="14.0" />
          </font>
@@ -49,28 +49,69 @@
          <font>
             <Font name="Zawgyi-One" size="12.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="item_name" layoutX="111.0" layoutY="292.0" maxHeight="10.0" maxWidth="150.0" prefHeight="10.0" prefWidth="150.0">
+      <JFXTextField fx:id="item_name" layoutX="111.0" layoutY="288.0" maxHeight="10.0" maxWidth="150.0" prefHeight="10.0" prefWidth="150.0">
          <font>
             <Font name="Zawgyi-One" size="12.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="money_given" layoutX="110.0" layoutY="348.0" maxHeight="10.0" maxWidth="150.0" prefHeight="10.0" prefWidth="150.0">
-         <font>
-            <Font name="Zawgyi-One" size="12.0" />
-         </font></JFXTextField>
-      <Label layoutX="69.0" layoutY="349.0" text="ေငြ">
+      <Label layoutX="34.0" layoutY="404.0" text="ေခ်းေပးေငြ">
          <font>
             <Font name="Zawgyi-One" size="14.0" />
          </font>
       </Label>
-      <JFXButton layoutX="197.0" layoutY="410.0" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
+      <Label layoutX="33.0" layoutY="350.0" text="အေလးခ်ိန္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="weight_kyat" layoutX="108.0" layoutY="347.0" maxHeight="29.0" maxWidth="150.0" prefHeight="29.0" prefWidth="23.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="weight_pel" layoutX="164.0" layoutY="347.0" maxHeight="29.0" maxWidth="150.0" prefHeight="29.0" prefWidth="23.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="weight_yway" layoutX="212.0" layoutY="348.0" maxHeight="29.0" maxWidth="150.0" prefHeight="29.0" prefWidth="23.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="loan" layoutX="109.0" layoutY="401.0" maxHeight="10.0" maxWidth="150.0" prefHeight="10.0" prefWidth="150.0">
+         <font>
+            <Font name="Zawgyi-One" size="12.0" />
+         </font></JFXTextField>
+      <JFXButton fx:id = "confirm" onAction = "#addPawnDeal" layoutX="196.0" layoutY="497.0" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #336633;" text="Confirm" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="exit" layoutX="106.0" layoutY="410.0" onAction="#exit" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #ff0000;" text="Cancel" textFill="WHITE">
+      <JFXButton fx:id="exit" layoutX="105.0" layoutY="497.0" onAction="#exit" prefHeight="40.0" prefWidth="70.0" style="-fx-background-color: #ff0000;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <Label layoutX="133.0" layoutY="350.0" text="က်ပ္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="196.0" layoutY="351.0" text="ပဲ">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="241.0" layoutY="350.0" text="ေရြး">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="454.0" text="ေရြးရန္ရက္">
+         <font>
+            <Font name="Zawgyi-One" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dp_dueDate" layoutX="109.0" layoutY="454.0" prefHeight="25.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

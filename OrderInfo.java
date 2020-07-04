@@ -14,7 +14,7 @@ public class OrderInfo {
 	}
 
 	public Weight getDepreciation() {
-		return depreciation;
+		return depreciation; 
 	}
 
 	public void setDepreciation(Weight depreciation) {

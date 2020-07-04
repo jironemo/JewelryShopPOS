@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Sale implements Utilities {
 	String id;
-	String itemID;
+	int  itemID;
 	int customerID;
 	Date dateofSale;
 	String itemName;
@@ -18,8 +18,8 @@ public class Sale implements Utilities {
 	}
 
 	public void setItemName(String itemName) {
-		this.itemName = itemName;
-	}
+		this.itemName = itemName; 
+	} 
 
 	public String getCustomerName() {
 		return customerName;
@@ -31,7 +31,7 @@ public class Sale implements Utilities {
 
 	static String latestId = getLatestID();
 
-	public Sale(String itemID, int customerID) {
+	public Sale(int itemID, int customerID) {
 
 		this.id = latestId;
 		this.itemID = itemID;

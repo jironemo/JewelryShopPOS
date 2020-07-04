@@ -27,7 +27,7 @@ public interface Utilities {
 			s.execute(query);
 			con.close();
 			return 1;
-		} catch (SQLException sq) {
+		} catch (SQLException sq) { 
 			sq.printStackTrace();
 			return 0;
 		}
@@ -44,7 +44,7 @@ public interface Utilities {
 		s.centerOnScreen();
 		Image e = new Image("file:Neckband-icon.png");
 		s.getIcons().add(e);
-		s.setResizable(false);
+		s.setResizable(false); 
 		s.show();
 	}
 

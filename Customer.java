@@ -18,8 +18,8 @@ public class Customer implements Utilities {
 		this.phonenumber = "";
 	}
 
-	public Customer(String name, String address, String phonenumber) {
-		this.id = getLatestID();
+	public Customer(String name, String address, String phonenumber) { 
+		this.id = getLatestID()-1;
 		this.name = name;
 		this.address = address;
 		this.phonenumber = phonenumber;
@@ -113,10 +113,10 @@ public class Customer implements Utilities {
 		}
 	}
 
-	public int getCusID(String name) {
+	public int getCusID() {
 		int cus_id = 0;
 		String sql = "SELECT ID from Customer where Cus_Name = '%s'";
-		sql = String.format(sql, name);
+		sql = String.format(sql, this.name);
 		Connection c =  new Connector().connect();
 		try {
 			Statement s = c.createStatement();

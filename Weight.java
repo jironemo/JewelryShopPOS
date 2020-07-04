@@ -16,9 +16,9 @@ public class Weight {
 
 	public Weight(String c) {
 		Scanner s = new Scanner(c);
-		s.useDelimiter(",");
+		s.useDelimiter(","); 
 		this.Kyat = s.nextDouble();
-		this.Pel = s.nextDouble();
+		this.Pel = s.nextDouble(); 
 		this.Yway = s.nextDouble();
 		s.close(); 
 	}

@@ -28,7 +28,7 @@ public class SalesTableController {
 
 	public void initialize() {
 		loadTable();
-	}
+	} 
 
 	public void loadTable() {
 		String sql = "SELECT Sale.id,Stock.id,Stock.name,Customer.Cus_Name FROM (Sale INNER JOIN Customer ON sale.Cus_ID = Customer.ID) INNER JOIN Stock on Stock.ID = Sale.Item_ID";

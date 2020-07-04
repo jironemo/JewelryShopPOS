@@ -18,7 +18,7 @@ public class MainMenu extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Main Menu");
 		primaryStage.setResizable(false);
-		Image e = new Image("file:Neckband-icon.png");
+		Image e = new Image("file:Neckband-icon.png"); 
 		primaryStage.getIcons().add(e);
 		primaryStage.show();
 	}

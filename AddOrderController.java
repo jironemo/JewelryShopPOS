@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class AddOrderController {
+public class AddOrderController { 
 	@FXML
 	JFXButton exit;
 	@FXML
@@ -60,20 +60,13 @@ public class AddOrderController {
 
 	public void addOrder(Customer c) {
 		String pattern = "INSERT Into [Order] (Customer_ID,Item_ID,DateOfOrder,DueDate,item_description,depreciation) values (%d,'%s',DATE(),'%tF','%s','%s')";
-		String sql = String.format(pattern, c.getCusID(cus_name.getText()), Item.getItemFromName(item_name.getText()),
+		String sql = String.format(pattern, c.getCusID(), Item.getItemFromName(item_name.getText()),
 				dp_due.getValue(), description.getText(),new Weight(depre_kyat.getText()+","+depre_pel.getText()+","+depre_yway.getText()).getString());
 		try {
 			Connection con = new Connector().connect();
 			Statement s = con.createStatement();
 			s.execute(sql);
 			System.out.println("Success");
-			
-			String get  = "SELECT * FROM [Order]";
-			Statement s1 = con.createStatement();
-			ResultSet rs = s1.executeQuery(get);
-			while(rs.next()) {
-				System.out.println(rs.getInt(1));
-			}
 			con.close();
 		} catch (SQLException se) {
 			se.printStackTrace();

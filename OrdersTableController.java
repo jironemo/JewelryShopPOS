@@ -21,7 +21,7 @@ public class OrdersTableController{
 	private void loadTable() {
 		
 		ObservableList<OrderInfo> list = FXCollections.observableArrayList();
-		String query = "select [Order].id, Customer.Cus_Name,Customer.Cus_Phone," + 
+		String query = "select [Order].id, Customer.Cus_Name,Customer.Cus_Phone," +  
 				"Stock.Name,[Order].item_description,[Order].DueDate " + 
 				"from ([Order] INNER JOIN Stock) INNER JOIN Customer where [Order].Item_ID = "
 				+ "Stock.ID and [Order].Customer_ID = Customer.ID;";
